@@ -12,6 +12,8 @@ struct BaseView: View {
     
     var body: some View {
         VStack {
+            Spacer()
+            
             self.mode.view
             
             Spacer()
@@ -35,6 +37,27 @@ enum BaseViewMode {
             ScheduleView()
         case .myProfile:
             MyProfileView()
+        }
+    }
+    
+    var tabBarIconImageName: String {
+        switch self {
+        case .main:
+            return "house.fill"
+        case .schedule:
+            return "note.text.badge.plus"
+        case .myProfile:
+            return "person.fill"
+        }
+    }
+    var tabBarLabelText: String {
+        switch self {
+        case .main:
+            return "분석"
+        case .schedule:
+            return "가계부"
+        case .myProfile:
+            return "마이"
         }
     }
 }
