@@ -15,6 +15,8 @@
 		B7570228286362AB0073E49F /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7570227286362AB0073E49F /* ScheduleView.swift */; };
 		B757022A286362B70073E49F /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7570229286362B70073E49F /* MyProfileView.swift */; };
 		B757022F2863653E0073E49F /* BaseViewTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B757022E2863653E0073E49F /* BaseViewTabBar.swift */; };
+		F9D85296286367E10091B0EF /* TransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D85295286367E10091B0EF /* TransactionItem.swift */; };
+		F9D85298286368D80091B0EF /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D85297286368D80091B0EF /* ViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		B7570227286362AB0073E49F /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		B7570229286362B70073E49F /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		B757022E2863653E0073E49F /* BaseViewTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewTabBar.swift; sourceTree = "<group>"; };
+		F9D85295286367E10091B0EF /* TransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItem.swift; sourceTree = "<group>"; };
+		F9D85297286368D80091B0EF /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 		B7570223286361C30073E49F /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				F9D85294286367CF0091B0EF /* Components */,
 				B7570227286362AB0073E49F /* ScheduleView.swift */,
 			);
 			path = Schedule;
@@ -106,6 +111,7 @@
 				B7570222286361BC0073E49F /* Main */,
 				B7570223286361C30073E49F /* Schedule */,
 				B7570224286361CE0073E49F /* MyProfile */,
+				F9D85297286368D80091B0EF /* ViewExtensions.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -123,6 +129,14 @@
 			isa = PBXGroup;
 			children = (
 				B757022E2863653E0073E49F /* BaseViewTabBar.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F9D85294286367CF0091B0EF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F9D85295286367E10091B0EF /* TransactionItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -199,10 +213,12 @@
 			files = (
 				B757022A286362B70073E49F /* MyProfileView.swift in Sources */,
 				B7570217286346860073E49F /* BaseView.swift in Sources */,
+				F9D85298286368D80091B0EF /* ViewExtensions.swift in Sources */,
 				B7570228286362AB0073E49F /* ScheduleView.swift in Sources */,
 				B7570226286362A00073E49F /* MainView.swift in Sources */,
 				B7570215286346860073E49F /* WhipApp.swift in Sources */,
 				B757022F2863653E0073E49F /* BaseViewTabBar.swift in Sources */,
+				F9D85296286367E10091B0EF /* TransactionItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +275,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -313,7 +329,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
