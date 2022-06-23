@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AccountBookView: View {
     var body: some View {
-        Text("Account book")
+        TransactionItem(title: "222", description: "3333", price: 4545)
     }
 }
 
