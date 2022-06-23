@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct BaseView: View {
-    @State var mode: BaseViewMode = .main
+    @State var mode: BaseViewMode = .analysis
     
     var body: some View {
         VStack {
+            Spacer()
+            
             self.mode.view
             
             Spacer()
@@ -22,19 +24,47 @@ struct BaseView: View {
 }
 
 enum BaseViewMode {
-    case main
-    case schedule
+    case analysis
+    case accountBook
+    case challenge
     case myProfile
     
     @ViewBuilder
     var view: some View {
         switch self {
-        case .main:
-            MainView()
-        case .schedule:
-            ScheduleView()
+        case .analysis:
+            AnaylsisView()
+        case .accountBook:
+            AccountBookView()
+        case .challenge:
+            ChallengeView()
         case .myProfile:
             MyProfileView()
+        }
+    }
+    
+    var tabBarIconImageName: String {
+        switch self {
+        case .analysis:
+            return "chart.pie.fill"
+        case .accountBook:
+            return "note.text.badge.plus"
+        case .challenge:
+            return "lightbulb.fill"
+        case .myProfile:
+            return "person.fill"
+        }
+    }
+    var tabBarLabelText: String {
+        switch self {
+        case .analysis:
+            return "분석"
+        case .accountBook:
+            return "가계부"
+        case .challenge:
+            return "챌린지"
+        case .myProfile:
+            return "마이"
         }
     }
 }
