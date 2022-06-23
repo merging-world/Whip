@@ -12,21 +12,22 @@ struct BaseViewTabBar: View {
     
     var body: some View {
         HStack(spacing: 0) {
-            Spacer()
-            self.makeTabItem(mode: .main)
+            self.makeTabItem(mode: .analysis)
             
             Spacer()
-            self.makeTabItem(mode: .schedule)
+            self.makeTabItem(mode: .accountBook)
+            
+            Spacer()
+            self.makeTabItem(mode: .challenge)
             
             Spacer()
             self.makeTabItem(mode: .myProfile)
-            Spacer()
         }
         .frame(
             maxWidth: Const.View.Base.Tabbar.width,
             maxHeight: Const.View.Base.Tabbar.height
         )
-        .background(.gray)
+        .padding(.horizontal, 40)
     }
 }
 
@@ -45,7 +46,7 @@ extension BaseViewTabBar {
             Text(mode.tabBarLabelText)
                 .font(.system(size: Const.View.Base.Tabbar.labelSize))
         }
-        .foregroundColor(self.mode == mode ? .black : .secondary)
+        .foregroundColor(self.mode == mode ? .tabBarAccentColor : .secondary)
         .onTapGesture {
             self.mode = mode
         }
@@ -54,6 +55,6 @@ extension BaseViewTabBar {
 
 struct BaseViewTabBar_Previews: PreviewProvider {
     static var previews: some View {
-        BaseViewTabBar(mode: .constant(.main))
+        BaseViewTabBar(mode: .constant(.analysis))
     }
 }

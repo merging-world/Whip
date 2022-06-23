@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct ScheduleView: View {
+struct AccountBookView: View {
     var body: some View {
-        Text("Schedule")
+        Text("Account book")
     }
 }
 
-struct ScheduleView_Previews: PreviewProvider {
+struct AccountBookView_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleView()
+        AccountBookView()
     }
 }
