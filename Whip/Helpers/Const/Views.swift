@@ -11,11 +11,11 @@ extension Const {
     struct View {
         struct Base {
             struct Tabbar {
-                static let width: CGFloat = .infinity
-                static let height: CGFloat = 83.0
+                static let width: CGFloat = UIScreen.main.bounds.width
+                static let height: CGFloat = 58.0
                 
-                static let iconWidth: CGFloat = 25.0
-                static let iconHeight: CGFloat = 25.0
+                static let iconWidth: CGFloat = 20.0
+                static let iconHeight: CGFloat = 20.0
                 
                 static let spacingBetweenIconAndLabel: CGFloat = 5.0
                 

@@ -11,14 +11,19 @@ struct BaseView: View {
     @State var mode: BaseViewMode = .analysis
     
     var body: some View {
-        VStack {
-            Spacer()
-            
-            self.mode.view
-            
-            Spacer()
-            
-            BaseViewTabBar(mode: self.$mode)
+        GeometryReader { proxy in
+            VStack {
+                Spacer()
+                
+                self.mode.view
+                
+                BaseViewTabBar(mode: self.$mode)
+                    .frame(
+                        maxWidth: Const.View.Base.Tabbar.width,
+                        maxHeight: Const.View.Base.Tabbar.height - proxy.safeAreaInsets.bottom
+                    )
+                    .offset(y: 8)
+            }
         }
     }
 }

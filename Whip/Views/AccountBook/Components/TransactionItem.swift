@@ -27,7 +27,7 @@ struct TransactionItem: View {
                 Text("ㅋ")
             }
             .frame(width: 42, height: 42, alignment: .center)
-            .background(Color.gray)
+            .background(Color.carrot)
             .cornerRadius(21)
             VStack(alignment: .leading, spacing: 6) {
                 Text(title)

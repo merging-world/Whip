@@ -11,7 +11,7 @@ struct BaseViewTabBar: View {
     @Binding var mode: BaseViewMode
     
     var body: some View {
-        HStack(spacing: 0) {
+        HStack(alignment: .top, spacing: 0) {
             self.makeTabItem(mode: .analysis)
             
             Spacer()
@@ -23,11 +23,7 @@ struct BaseViewTabBar: View {
             Spacer()
             self.makeTabItem(mode: .myProfile)
         }
-        .frame(
-            maxWidth: Const.View.Base.Tabbar.width,
-            maxHeight: Const.View.Base.Tabbar.height
-        )
-        .padding(.horizontal, 40)
+        .padding(.horizontal, 35)
     }
 }
 
@@ -39,8 +35,8 @@ extension BaseViewTabBar {
             Image(systemName: mode.tabBarIconImageName)
                 .resizable()
                 .frame(
-                    maxWidth: Const.View.Base.Tabbar.iconWidth,
-                    maxHeight: Const.View.Base.Tabbar.iconHeight
+                    width: Const.View.Base.Tabbar.iconWidth,
+                    height: Const.View.Base.Tabbar.iconHeight
                 )
             
             Text(mode.tabBarLabelText)
