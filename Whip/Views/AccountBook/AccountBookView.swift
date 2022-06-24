@@ -21,6 +21,7 @@ struct AccountBookView: View {
             print(self.date)
         }
     }
+    @State var showModal = false
     
     var body: some View {
         NavigationView {
@@ -28,46 +29,53 @@ struct AccountBookView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(spacing: 0) {
                         self.toolbar()
-                            .padding(.horizontal, 35)
+                            .padding(.top, 12)
                         
                         self.mode.calenderView(date: self.$date)
+                            .padding(.top, self.mode == .daily ? 24 : 0)
                         
-                        Divider(height: 1)
-                            .offset(y: self.mode == .weekly ? -250 : 0)
-                            .padding(.horizontal, 24)
+                        Divider(height: 1, horizontalPadding: 24)
+                            .offset(y: self.mode == .weekly ? -240 : 0)
                             .padding(.top, 12)
                         
                         ForEach(self.records, id: \.self) {
                             if self.mode == .weekly || self.mode == .daily {
-                                TransactionItem(title: $0, description: self.date.formatted(), price: 1000 * $0.count)
-                                    .padding(.horizontal, 12)
+                                TransactionItem(
+                                    title: $0,
+                                    description: self.date.formatted(),
+                                    price: 1000 * $0.count
+                                )
+                                .padding(.vertical, 12)
+                                .onTapGesture {
+                                    self.showModal = true
+                                }
+                                
                             } else {
                                 VStack(spacing: 0) {
                                     MonthlyTransactionItem()
-                                        .padding(.horizontal, 32)
+                                        .onTapGesture {
+                                            self.showModal = true
+                                        }
                                     
-                                    Divider(height: 1)
+                                    Divider(height: 1, horizontalPadding: 24)
                                         .padding(.vertical, 4)
-//                                        .padding(.horizontal, 32)
                                 }
                             }
                         }
                         .offset(y: self.mode == .weekly ? -230 : 0)
                         .padding(.top, 4)
+                        .sheet(isPresented: self.$showModal) {
+                            ItemDetailView(showModal: self.$showModal)
+                        }
                         
                     }
+                    .padding(.horizontal, 24)
                 }
                 
                 VStack {
                     Spacer()
-                    Picker("", selection: self.$mode) {
-                        ForEach(AccountBookViewMode.allCases, id: \.self) {
-                            Text($0.rawValue)
-                                .foregroundColor(.white)
-                        }
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .padding(.horizontal, 100)
+                    self.segmentedControl()
+                    .offset(y: -12)
                 }
             }
             .navigationBarHidden(true)
@@ -80,18 +88,19 @@ extension AccountBookView {
     func toolbar(date: Date = Date()) -> some View {
         HStack(spacing: 0) {
             Text("22")
-                .foregroundColor(.fontColor)
                 .font(.system(size: 44))
                 .bold()
+                .foregroundColor(.fontColor)
+                
             VStack(alignment: .leading, spacing: 0) {
                 Text("Wed")
                 
                 Text("June 2022")
                     .padding(.top, 6)
             }
-            .foregroundColor(.gray)
             .font(.system(size: 14))
             .padding(.leading, 10)
+            .foregroundColor(.gray)
             
             Spacer()
             Button(action: {
@@ -108,6 +117,36 @@ extension AccountBookView {
             .cornerRadius(8)
         }
     }
+    
+    @ViewBuilder
+    func segmentedControl() -> some View {
+        HStack {
+            ForEach(AccountBookViewMode.allCases, id: \.self) { mode in
+                Text(mode.rawValue)
+                    .font(.system(size: 13))
+                    .foregroundColor(self.mode == mode ? .white : .fontColor)
+                    .padding(.horizontal, 36)
+                    .padding(.vertical, 6)
+                    .background(
+                        Capsule()
+                            .fill(self.mode == mode ? Color.carrot : .white)
+                            .onTapGesture {
+                                self.mode = mode
+                            }
+                    )
+            }
+        }
+        .background(
+            Capsule()
+                .fill(.white)
+                .shadow(
+                    color: .black.opacity(0.1),
+                    radius: 14,
+                    x: 0,
+                    y: 0
+                )
+        )
+    }
 }
 
 enum AccountBookViewMode: String, CaseIterable {
@@ -120,6 +159,7 @@ enum AccountBookViewMode: String, CaseIterable {
         switch self {
         case .daily:
             DailyView()
+                .frame(width: UIScreen.main.bounds.width - 32)
         case .weekly:
             CalendarView(scope: .week, date: date)
                 .frame(

@@ -40,7 +40,7 @@ struct TransactionItem: View {
             Text("\(formatter.string(for: price)!)원")
                 .font(.system(size: 16, weight: .semibold))
             
-        }.padding()
+        }
     }
 }
 
