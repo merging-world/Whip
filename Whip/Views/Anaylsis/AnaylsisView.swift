@@ -9,85 +9,52 @@ import SwiftUI
 
 struct AnaylsisView: View {
     var body: some View {
-        VStack(spacing: 0) {
-            HStack {
-                RoundedRectangle(cornerRadius: 4)
-                    .foregroundColor(.gray)
-                    .frame(width: 180, height: 20)
-                    .padding(.leading, 20)
-                Spacer()
-            }
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 0) {
-                    ZStack {
-                        ZStack(alignment: .topLeading) {
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(width: 270, height: 120)
-                                .foregroundColor(.carrot)
-                            
-                            Text("당근 지수")
-                                .foregroundColor(.white)
-                                .bold()
-                                .padding()
-                                
-                        }
-                        
-                        HStack {
-                            Spacer()
-                            Image("Carrot")
-                                .resizable()
-                                .frame(width: 90, height: 170)
-                        }
+        ScrollView {
+            VStack(spacing: 0) {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("오늘 사용한 돈")
+                            .font(.system(size: 20))
+                            .fontWeight(.medium)
+                        Text("32,500원")
+                            .font(.system(size: 32))
+                            .fontWeight(.bold)
                     }
-                    
-                    ZStack {
-                        ZStack(alignment: .topLeading) {
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(width: 270, height: 120)
-                                .foregroundColor(.whip)
-                            
-                            Text("채찍 지수")
-                                .foregroundColor(.white)
-                                .bold()
-                                .padding()
-                        }
-                    }
-                    .padding(.leading, 20)
-                    .padding(.trailing, 20)
+                    .padding(EdgeInsets(top: 32, leading: 24, bottom: 8, trailing: 24))
+                    Spacer()
                 }
-                .padding(.leading, 20)
+                ComparedScoreCard()
+                Divider()
+                    .padding(.top, 16)
+                VStack {
+                    HStack {
+                        Text("진행 중인 챌린지")
+                            .font(.system(size: 18))
+                            .fontWeight(.medium)
+                        Text("1/4")
+                            .font(.system(size: 14))
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.gray)
+                        Spacer()
+                    }
+                    .padding(.top, 32)
+                    .padding(.bottom, 16)
+                    ChallengeCard(title: "포토샵 강의 시청", desc: "30일 챌린지", content: "12강", percent: 0.8)
+                }
+                .padding([.leading, .trailing], 24)
+                VStack {
+                    HStack {
+                        Text("오늘의 당근팁")
+                            .font(.system(size: 18))
+                            .fontWeight(.medium)
+                        Spacer()
+                    }
+                    .padding(.top, 32)
+                    .padding(.bottom, 16)
+                    TodayTipCard()
+                }
+                .padding([.leading, .trailing], 24)
             }
-            
-            Divider()
-                .padding(.top, 15)
-                .padding(.bottom, 25)
-            
-            HStack {
-                RoundedRectangle(cornerRadius: 4)
-                    .foregroundColor(.gray)
-                    .frame(width: 180, height: 20)
-                    .padding(.leading, 20)
-                    
-                Spacer()
-            }
-            .padding(.bottom, 15)
-            
-            HStack {
-                RoundedRectangle(cornerRadius: 4)
-                    .foregroundColor(.gray)
-                    .frame(width: 240, height: 20)
-                    .padding(.leading, 20)
-                Spacer()
-            }
-            .padding(.bottom, 25)
-            
-            RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(.gray)
-                .frame(height: 150)
-                .padding(.horizontal, 20)
-            
-            Spacer()
         }
     }
 }

@@ -12,4 +12,5 @@ extension Color {
     static let whip = Color("whip")
     static let tabBarAccentColor = Color("tabBarAccentColor")
     static let divider = Color("divider")
+    static let progressBar = Color("progressBar")
 }
