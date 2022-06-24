@@ -9,85 +9,29 @@ import SwiftUI
 
 struct AnaylsisView: View {
     var body: some View {
-        VStack(spacing: 0) {
-            HStack {
-                RoundedRectangle(cornerRadius: 4)
-                    .foregroundColor(.gray)
-                    .frame(width: 180, height: 20)
-                    .padding(.leading, 20)
-                Spacer()
-            }
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 0) {
-                    ZStack {
-                        ZStack(alignment: .topLeading) {
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(width: 270, height: 120)
-                                .foregroundColor(.carrot)
-                            
-                            Text("당근 지수")
-                                .foregroundColor(.white)
-                                .bold()
-                                .padding()
-                                
+        NavigationView {
+            ScrollView {
+                VStack(spacing: 0) {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("오늘 사용한 돈")
+                                .font(.system(size: 20))
+                                .fontWeight(.medium)
+                            Text("32,500원")
+                                .font(.system(size: 32))
+                                .fontWeight(.bold)
                         }
-                        
-                        HStack {
-                            Spacer()
-                            Image("Carrot")
-                                .resizable()
-                                .frame(width: 90, height: 170)
-                        }
+                        .padding(EdgeInsets(top: 32, leading: 24, bottom: 8, trailing: 24))
+                        Spacer()
                     }
-                    
-                    ZStack {
-                        ZStack(alignment: .topLeading) {
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(width: 270, height: 120)
-                                .foregroundColor(.whip)
-                            
-                            Text("채찍 지수")
-                                .foregroundColor(.white)
-                                .bold()
-                                .padding()
-                        }
-                    }
-                    .padding(.leading, 20)
-                    .padding(.trailing, 20)
+                    ComparedScoreCard()
+                    Divider()
+                        .padding([.top, .bottom], 16)
+                    ChallengeCard()
+                    TodayTipCard()
                 }
-                .padding(.leading, 20)
             }
-            
-            Divider()
-                .padding(.top, 15)
-                .padding(.bottom, 25)
-            
-            HStack {
-                RoundedRectangle(cornerRadius: 4)
-                    .foregroundColor(.gray)
-                    .frame(width: 180, height: 20)
-                    .padding(.leading, 20)
-                    
-                Spacer()
-            }
-            .padding(.bottom, 15)
-            
-            HStack {
-                RoundedRectangle(cornerRadius: 4)
-                    .foregroundColor(.gray)
-                    .frame(width: 240, height: 20)
-                    .padding(.leading, 20)
-                Spacer()
-            }
-            .padding(.bottom, 25)
-            
-            RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(.gray)
-                .frame(height: 150)
-                .padding(.horizontal, 20)
-            
-            Spacer()
+            .navigationBarHidden(true)
         }
     }
 }
