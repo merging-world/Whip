@@ -12,7 +12,7 @@ struct BaseView: View {
     
     var body: some View {
         GeometryReader { proxy in
-            VStack {
+            VStack(spacing: 0) {
                 Spacer()
                 
                 self.mode.view
@@ -22,7 +22,10 @@ struct BaseView: View {
                         maxWidth: Const.View.Base.Tabbar.width,
                         maxHeight: Const.View.Base.Tabbar.height - proxy.safeAreaInsets.bottom
                     )
-                    .offset(y: 8)
+                    .padding(.top, 16)
+                    .padding(.bottom, 4)
+                    .background(Color.white)
+                    .shadow(color: Color.black.opacity(0.08), radius: 12, x: 0, y: 0)
             }
         }
     }
@@ -51,13 +54,13 @@ enum BaseViewMode {
     var tabBarIconImageName: String {
         switch self {
         case .analysis:
-            return "chart.pie.fill"
+            return "home"
         case .accountBook:
-            return "note.text.badge.plus"
+            return "account"
         case .challenge:
-            return "lightbulb.fill"
+            return "award"
         case .myProfile:
-            return "person.fill"
+            return "user"
         }
     }
     var tabBarLabelText: String {

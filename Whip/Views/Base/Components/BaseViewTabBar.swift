@@ -32,8 +32,9 @@ extension BaseViewTabBar {
     @ViewBuilder
     private func makeTabItem(mode: BaseViewMode) -> some View {
         VStack(spacing: Const.View.Base.Tabbar.spacingBetweenIconAndLabel) {
-            Image(systemName: mode.tabBarIconImageName)
+            Image(mode.tabBarIconImageName)
                 .resizable()
+                .scaledToFit()
                 .frame(
                     width: Const.View.Base.Tabbar.iconWidth,
                     height: Const.View.Base.Tabbar.iconHeight
