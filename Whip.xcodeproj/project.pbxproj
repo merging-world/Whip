@@ -27,6 +27,7 @@
 		B78C2D152865DE62006CCAD0 /* MonthlyTransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D142865DE62006CCAD0 /* MonthlyTransactionItem.swift */; };
 		B78C2D172865E1DF006CCAD0 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D162865E1DF006CCAD0 /* DailyView.swift */; };
 		B78C2D192865ECBA006CCAD0 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D182865ECBA006CCAD0 /* ItemDetailView.swift */; };
+		B78C2D1B2865F27E006CCAD0 /* SegementedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D1A2865F27E006CCAD0 /* SegementedView.swift */; };
 		F95AC1272865987500F06385 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95AC1262865987400F06385 /* Card.swift */; };
 		F95AC12A28659B4200F06385 /* ComparedScoreCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95AC12928659B4200F06385 /* ComparedScoreCard.swift */; };
 		F95AC12C2865AA3F00F06385 /* ChallengeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95AC12B2865AA3F00F06385 /* ChallengeCard.swift */; };
@@ -55,6 +56,7 @@
 		B78C2D142865DE62006CCAD0 /* MonthlyTransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyTransactionItem.swift; sourceTree = "<group>"; };
 		B78C2D162865E1DF006CCAD0 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
 		B78C2D182865ECBA006CCAD0 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		B78C2D1A2865F27E006CCAD0 /* SegementedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegementedView.swift; sourceTree = "<group>"; };
 		F95AC1262865987400F06385 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F95AC12928659B4200F06385 /* ComparedScoreCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparedScoreCard.swift; sourceTree = "<group>"; };
 		F95AC12B2865AA3F00F06385 /* ChallengeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCard.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				B78C2D142865DE62006CCAD0 /* MonthlyTransactionItem.swift */,
 				B78C2D162865E1DF006CCAD0 /* DailyView.swift */,
 				B78C2D182865ECBA006CCAD0 /* ItemDetailView.swift */,
+				B78C2D1A2865F27E006CCAD0 /* SegementedView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				B7570243286453BC0073E49F /* View.swift in Sources */,
 				B757023428636BD60073E49F /* Views.swift in Sources */,
 				F95AC12A28659B4200F06385 /* ComparedScoreCard.swift in Sources */,
+				B78C2D1B2865F27E006CCAD0 /* SegementedView.swift in Sources */,
 				B75702412864534C0073E49F /* TransactionItem.swift in Sources */,
 				B757022A286362B70073E49F /* MyProfileView.swift in Sources */,
 				B7570217286346860073E49F /* BaseView.swift in Sources */,

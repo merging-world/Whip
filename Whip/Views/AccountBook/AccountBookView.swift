@@ -74,8 +74,8 @@ struct AccountBookView: View {
                 
                 VStack {
                     Spacer()
-                    self.segmentedControl()
-                    .offset(y: -12)
+                    SegementedView(selectedMode: self.$mode)
+                    .offset(y: -16)
                 }
             }
             .navigationBarHidden(true)
@@ -117,36 +117,6 @@ extension AccountBookView {
             .cornerRadius(8)
         }
     }
-    
-    @ViewBuilder
-    func segmentedControl() -> some View {
-        HStack {
-            ForEach(AccountBookViewMode.allCases, id: \.self) { mode in
-                Text(mode.rawValue)
-                    .font(.system(size: 13))
-                    .foregroundColor(self.mode == mode ? .white : .fontColor)
-                    .padding(.horizontal, 36)
-                    .padding(.vertical, 6)
-                    .background(
-                        Capsule()
-                            .fill(self.mode == mode ? Color.carrot : .white)
-                            .onTapGesture {
-                                self.mode = mode
-                            }
-                    )
-            }
-        }
-        .background(
-            Capsule()
-                .fill(.white)
-                .shadow(
-                    color: .black.opacity(0.1),
-                    radius: 14,
-                    x: 0,
-                    y: 0
-                )
-        )
-    }
 }
 
 enum AccountBookViewMode: String, CaseIterable {
@@ -172,6 +142,17 @@ enum AccountBookViewMode: String, CaseIterable {
                     width: UIScreen.main.bounds.width - 32,
                     height: UIScreen.main.bounds.height / 2.5
                 )
+        }
+    }
+    
+    var index: Int {
+        switch self {
+        case .daily:
+            return 0
+        case .weekly:
+            return 1
+        case .monthly:
+            return 2
         }
     }
 }
