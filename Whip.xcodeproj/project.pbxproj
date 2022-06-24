@@ -26,6 +26,7 @@
 		F95AC12A28659B4200F06385 /* ComparedScoreCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95AC12928659B4200F06385 /* ComparedScoreCard.swift */; };
 		F95AC12C2865AA3F00F06385 /* ChallengeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95AC12B2865AA3F00F06385 /* ChallengeCard.swift */; };
 		F95AC12E2865B3C800F06385 /* TodayTipCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95AC12D2865B3C800F06385 /* TodayTipCard.swift */; };
+		F95AC1302865DD9100F06385 /* TipDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95AC12F2865DD9100F06385 /* TipDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		F95AC12928659B4200F06385 /* ComparedScoreCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparedScoreCard.swift; sourceTree = "<group>"; };
 		F95AC12B2865AA3F00F06385 /* ChallengeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCard.swift; sourceTree = "<group>"; };
 		F95AC12D2865B3C800F06385 /* TodayTipCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTipCard.swift; sourceTree = "<group>"; };
+		F95AC12F2865DD9100F06385 /* TipDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				F95AC12828659AC300F06385 /* Components */,
 				B7570225286362A00073E49F /* AnaylsisView.swift */,
+				F95AC12F2865DD9100F06385 /* TipDetailView.swift */,
 			);
 			path = Anaylsis;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				B7570226286362A00073E49F /* AnaylsisView.swift in Sources */,
 				B7570215286346860073E49F /* WhipApp.swift in Sources */,
 				B757023E286392BB0073E49F /* Divider.swift in Sources */,
+				F95AC1302865DD9100F06385 /* TipDetailView.swift in Sources */,
 				F95AC1272865987500F06385 /* Card.swift in Sources */,
 				F95AC12C2865AA3F00F06385 /* ChallengeCard.swift in Sources */,
 				B757022F2863653E0073E49F /* BaseViewTabBar.swift in Sources */,

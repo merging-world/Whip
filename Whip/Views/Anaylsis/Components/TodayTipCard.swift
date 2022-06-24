@@ -7,33 +7,53 @@
 
 import SwiftUI
 
+struct Tip: Hashable {
+    let title: String
+}
+
 struct TodayTipCard: View {
+    let tips: [Tip] = [
+        Tip(title: "지역 화폐를 만들어보세요 💸"),
+        Tip(title: "2학기 국가장학금 신청하세요"),
+        Tip(title: "오늘의 핫딜")
+    ]
+    
     var body: some View {
-        Card(
-            AnyView(
-                VStack(spacing: 24) {
-                    HStack {
-                        Text("지역 화폐를 만들어보세요 💸")
-                        Spacer()
-                        Image(systemName: "chevron.forward")
-                            .foregroundColor(Color.carrot)
+        VStack {
+            HStack {
+                Text("오늘의 당근팁")
+                    .font(.system(size: 18))
+                    .fontWeight(.medium)
+                Spacer()
+            }
+            .padding(.top, 32)
+            .padding(.bottom, 16)
+            Card(
+                AnyView(
+                    VStack(spacing: 24) {
+                        ForEach(tips, id: \.self) { item in
+                            tipItem(item)
+                        }
                     }
-                    HStack {
-                        Text("2학기 국가장학금 신청하세요")
-                        Spacer()
-                        Image(systemName: "chevron.forward")
-                            .foregroundColor(Color.carrot)
-                    }
-                    HStack {
-                        Text("오늘의 핫딜")
-                        Spacer()
-                        Image(systemName: "chevron.forward")
-                            .foregroundColor(Color.carrot)
-                    }
-                }
-            ),
-            color: nil
-        )
+                ),
+                color: nil
+            )
+        }
+        .padding([.leading, .trailing], 24)
+        .padding(.bottom, 32)
+    }
+    
+    @ViewBuilder
+    func tipItem(_ item: Tip) -> some View {
+        NavigationLink(destination: TipDetailView()) {
+            HStack {
+                Text(item.title)
+                    .foregroundColor(Color.black)
+                Spacer()
+                Image(systemName: "chevron.forward")
+                    .foregroundColor(Color.carrot)
+            }
+        }
     }
 }
 
