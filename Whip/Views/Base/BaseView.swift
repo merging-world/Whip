@@ -22,7 +22,7 @@ struct BaseView: View {
                         maxWidth: Const.View.Base.Tabbar.width,
                         maxHeight: Const.View.Base.Tabbar.height - proxy.safeAreaInsets.bottom
                     )
-                    .offset(y: 8)
+                    .offset(y: 4)
             }
         }
     }
