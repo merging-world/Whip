@@ -67,20 +67,19 @@ extension ItemDetailView {
     
     @ViewBuilder
     var saveButton: some View {
-        HStack {
-            Spacer()
-            Button(action: {
-                self.showModal = false
-            }) {
-                Text("저장하기")
-                    .font(.system(size: 18))
-                    .foregroundColor(.white)
-            }
-            Spacer()
+        Button(action: {
+            self.showModal = false
+        }) {
+            Text("저장하기")
+                .bold()
         }
-        .padding(.vertical, 12)
-        .background(Color.carrot)
-        .cornerRadius(10)
+        .buttonStyle(
+            BigButtonStyle(
+                fontSize: 18,
+                fontColor: .white,
+                backgroundColor: .carrot
+            )
+        )
         .padding(.horizontal, 24)
     }
     
