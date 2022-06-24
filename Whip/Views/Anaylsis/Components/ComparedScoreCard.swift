@@ -43,10 +43,10 @@ struct ComparedScoreCard: View {
                                         .foregroundColor(self.selected == 0 ? Color.white : Color.carrot)
                                 }
                                 Spacer()
-                                Image("Carrot")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 32, height: 64)
+//                                Image("Carrot")
+//                                    .resizable()
+//                                    .scaledToFit()
+//                                    .frame(width: 32, height: 64)
                             }
                         ),
                         color: self.selected == 0 ? Color.carrot : nil
