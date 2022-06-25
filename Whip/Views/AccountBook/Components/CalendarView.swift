@@ -54,6 +54,8 @@ struct CalendarView: UIViewRepresentable {
             self.toolbarTitle = "\(month)월 \(week)주"
         case .month:
             self.toolbarTitle = "\(month)월"
+        default :
+            self.toolbarTitle = ""
         }
         
         return calendar

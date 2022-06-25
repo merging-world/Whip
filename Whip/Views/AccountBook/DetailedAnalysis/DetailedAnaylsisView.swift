@@ -81,7 +81,7 @@ struct DetailedAnaylsisView: View {
                             Spacer()
                         }
                         
-                        TipLinkCard(tipContent: TipContent(title: "스스로 성장하는\n분석가 커리어 만들기", image: "sample1"), isDetailedAnalysis: true)
+                        TipLinkCard(tipContent: TipContent(title: "스스로 성장하는\n분석가 커리어 만들기", image: "sample1", type: 0), isDetailedAnalysis: true)
                             .padding(.top, 20)
                         
                         Button(action: {

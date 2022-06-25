@@ -77,15 +77,11 @@ extension AccountBookView {
     func toolbar() -> some View {
         HStack(alignment: .top, spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {
-                HStack {
-                    Text(self.viewModel.model.resultText)
-                    Image(systemName: "chevron.down")
-                }
-                .font(.system(size: 20))
+                Text(self.viewModel.model.resultText)
+                    .font(.system(size: 20, weight: .medium))
                 
                 Text(self.mode.totalMoney)
-                    .font(.system(size: 32))
-                    .bold()
+                    .font(.system(size: 32, weight: .bold))
                     .foregroundColor(.fontColor)
                     .padding(.top, 8)
             }

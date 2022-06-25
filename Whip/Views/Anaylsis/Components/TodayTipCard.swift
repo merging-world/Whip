@@ -39,7 +39,7 @@ struct TodayTipCard: View {
             content: [
                 TipContent(title: "빅데이터 분석기사", type: 0),
                 TipContent(title: "ADsP (데이터분석 준전문가)", type: 0),
-                TipContent(title: "DAP (데이터아키텍처 전문가", type: 0),
+                TipContent(title: "DAP (데이터아키텍처 전문가)", type: 0),
                 TipContent(title: "SQLP (SQL 준전문가)", type: 0)
             ]
         ),
