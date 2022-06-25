@@ -25,7 +25,7 @@ struct AnaylsisView: View {
                         Spacer()
                     }
                     ComparedScoreCard()
-                    Divider()
+                    CustomDivider()
                         .padding([.top, .bottom], 16)
                     ChallengeCard()
                     TodayTipCard()

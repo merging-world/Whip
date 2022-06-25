@@ -34,7 +34,7 @@ struct AccountBookView: View {
                         self.mode.calenderView(date: self.$date)
                             .padding(.top, self.mode == .daily ? 24 : 0)
                         
-                        Divider(height: 1, horizontalPadding: 24)
+                        CustomDivider(height: 1, horizontalPadding: 24)
                             .offset(y: self.mode == .weekly ? -240 : 0)
                             .padding(.top, 12)
                         
@@ -57,7 +57,7 @@ struct AccountBookView: View {
                                             self.showModal = true
                                         }
                                     
-                                    Divider(height: 1, horizontalPadding: 24)
+                                    CustomDivider(height: 1, horizontalPadding: 24)
                                         .padding(.vertical, 4)
                                 }
                             }
@@ -103,8 +103,9 @@ extension AccountBookView {
             .foregroundColor(.gray)
             
             Spacer()
-            Button(action: {
-                
+            
+            NavigationLink(destination: {
+                DetailedAnaylsisView()
             }) {
                 Text("분석")
                     .font(.system(size: 16))
@@ -112,9 +113,9 @@ extension AccountBookView {
                     .foregroundColor(Color(red: 141.0/255.0, green: 141.0/255.0, blue: 141.0/255.0))
                     .padding(.horizontal, 12)
                     .padding(.vertical, 8)
+                    .background(Color(red: 141.0/255.0, green: 141.0/255.0, blue: 141.0/255.0, opacity: 0.1))
+                    .cornerRadius(8)
             }
-            .background(Color(red: 141.0/255.0, green: 141.0/255.0, blue: 141.0/255.0, opacity: 0.1))
-            .cornerRadius(8)
         }
     }
 }

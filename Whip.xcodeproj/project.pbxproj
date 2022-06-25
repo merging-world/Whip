@@ -19,7 +19,7 @@
 		B757023428636BD60073E49F /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = B757023328636BD60073E49F /* Views.swift */; };
 		B757023728638B5A0073E49F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B757023628638B5A0073E49F /* Color.swift */; };
 		B757023A28638C570073E49F /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B757023928638C570073E49F /* ChallengeView.swift */; };
-		B757023E286392BB0073E49F /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B757023D286392BB0073E49F /* Divider.swift */; };
+		B757023E286392BB0073E49F /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B757023D286392BB0073E49F /* CustomDivider.swift */; };
 		B75702412864534C0073E49F /* TransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75702402864534C0073E49F /* TransactionItem.swift */; };
 		B7570243286453BC0073E49F /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7570242286453BC0073E49F /* View.swift */; };
 		B78C2D1128659801006CCAD0 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = B78C2D1028659801006CCAD0 /* FSCalendar */; };
@@ -29,6 +29,11 @@
 		B78C2D192865ECBA006CCAD0 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D182865ECBA006CCAD0 /* ItemDetailView.swift */; };
 		B78C2D1B2865F27E006CCAD0 /* SegementedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D1A2865F27E006CCAD0 /* SegementedView.swift */; };
 		B78C2D1E28666F22006CCAD0 /* BigButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D1D28666F22006CCAD0 /* BigButtonStyle.swift */; };
+		B78C2D2428667545006CCAD0 /* DetailedAnaylsisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D2328667545006CCAD0 /* DetailedAnaylsisView.swift */; };
+		B78C2D27286677C2006CCAD0 /* DonutChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D26286677C2006CCAD0 /* DonutChartView.swift */; };
+		B78C2D2A286678E1006CCAD0 /* SwiftPieChart in Frameworks */ = {isa = PBXBuildFile; productRef = B78C2D29286678E1006CCAD0 /* SwiftPieChart */; };
+		B78C2D2F28667C18006CCAD0 /* PieSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D2E28667C18006CCAD0 /* PieSlice.swift */; };
+		B78C2D3228668686006CCAD0 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D3128668686006CCAD0 /* BarChartView.swift */; };
 		F95AC1272865987500F06385 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95AC1262865987400F06385 /* Card.swift */; };
 		F95AC12A28659B4200F06385 /* ComparedScoreCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95AC12928659B4200F06385 /* ComparedScoreCard.swift */; };
 		F95AC12C2865AA3F00F06385 /* ChallengeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95AC12B2865AA3F00F06385 /* ChallengeCard.swift */; };
@@ -50,7 +55,7 @@
 		B757023328636BD60073E49F /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
 		B757023628638B5A0073E49F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		B757023928638C570073E49F /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
-		B757023D286392BB0073E49F /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
+		B757023D286392BB0073E49F /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
 		B75702402864534C0073E49F /* TransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItem.swift; sourceTree = "<group>"; };
 		B7570242286453BC0073E49F /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		B78C2D1228659A94006CCAD0 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -59,6 +64,10 @@
 		B78C2D182865ECBA006CCAD0 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
 		B78C2D1A2865F27E006CCAD0 /* SegementedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegementedView.swift; sourceTree = "<group>"; };
 		B78C2D1D28666F22006CCAD0 /* BigButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonStyle.swift; sourceTree = "<group>"; };
+		B78C2D2328667545006CCAD0 /* DetailedAnaylsisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedAnaylsisView.swift; sourceTree = "<group>"; };
+		B78C2D26286677C2006CCAD0 /* DonutChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutChartView.swift; sourceTree = "<group>"; };
+		B78C2D2E28667C18006CCAD0 /* PieSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSlice.swift; sourceTree = "<group>"; };
+		B78C2D3128668686006CCAD0 /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		F95AC1262865987400F06385 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F95AC12928659B4200F06385 /* ComparedScoreCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparedScoreCard.swift; sourceTree = "<group>"; };
 		F95AC12B2865AA3F00F06385 /* ChallengeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCard.swift; sourceTree = "<group>"; };
@@ -71,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B78C2D2A286678E1006CCAD0 /* SwiftPieChart in Frameworks */,
 				B78C2D1128659801006CCAD0 /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +137,7 @@
 		B7570223286361C30073E49F /* AccountBook */ = {
 			isa = PBXGroup;
 			children = (
+				B78C2D2228667524006CCAD0 /* DetailedAnalysis */,
 				B757023F2864533C0073E49F /* Components */,
 				B7570227286362AB0073E49F /* AccountBookView.swift */,
 			);
@@ -210,7 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				B78C2D1C28666EF6006CCAD0 /* ButtonStyles */,
-				B757023D286392BB0073E49F /* Divider.swift */,
+				B757023D286392BB0073E49F /* CustomDivider.swift */,
 				F95AC1262865987400F06385 /* Card.swift */,
 			);
 			path = Components;
@@ -235,6 +246,33 @@
 				B78C2D1D28666F22006CCAD0 /* BigButtonStyle.swift */,
 			);
 			path = ButtonStyles;
+			sourceTree = "<group>";
+		};
+		B78C2D2228667524006CCAD0 /* DetailedAnalysis */ = {
+			isa = PBXGroup;
+			children = (
+				B78C2D25286677B3006CCAD0 /* Components */,
+				B78C2D2328667545006CCAD0 /* DetailedAnaylsisView.swift */,
+			);
+			path = DetailedAnalysis;
+			sourceTree = "<group>";
+		};
+		B78C2D25286677B3006CCAD0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B78C2D3028668655006CCAD0 /* BarChart */,
+				B78C2D26286677C2006CCAD0 /* DonutChartView.swift */,
+				B78C2D2E28667C18006CCAD0 /* PieSlice.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B78C2D3028668655006CCAD0 /* BarChart */ = {
+			isa = PBXGroup;
+			children = (
+				B78C2D3128668686006CCAD0 /* BarChartView.swift */,
+			);
+			path = BarChart;
 			sourceTree = "<group>";
 		};
 		F95AC12828659AC300F06385 /* Components */ = {
@@ -265,6 +303,7 @@
 			name = Whip;
 			packageProductDependencies = (
 				B78C2D1028659801006CCAD0 /* FSCalendar */,
+				B78C2D29286678E1006CCAD0 /* SwiftPieChart */,
 			);
 			productName = Whip;
 			productReference = B7570211286346860073E49F /* Whip.app */;
@@ -296,6 +335,7 @@
 			mainGroup = B7570208286346860073E49F;
 			packageReferences = (
 				B78C2D0F28659801006CCAD0 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				B78C2D28286678E1006CCAD0 /* XCRemoteSwiftPackageReference "SwiftPieChart" */,
 			);
 			productRefGroup = B7570212286346860073E49F /* Products */;
 			projectDirPath = "";
@@ -323,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B78C2D2F28667C18006CCAD0 /* PieSlice.swift in Sources */,
 				B7570243286453BC0073E49F /* View.swift in Sources */,
 				B757023428636BD60073E49F /* Views.swift in Sources */,
 				F95AC12A28659B4200F06385 /* ComparedScoreCard.swift in Sources */,
@@ -333,10 +374,13 @@
 				B7570228286362AB0073E49F /* AccountBookView.swift in Sources */,
 				F95AC12E2865B3C800F06385 /* TodayTipCard.swift in Sources */,
 				B7570226286362A00073E49F /* AnaylsisView.swift in Sources */,
+				B78C2D3228668686006CCAD0 /* BarChartView.swift in Sources */,
 				B7570215286346860073E49F /* WhipApp.swift in Sources */,
 				B78C2D172865E1DF006CCAD0 /* DailyView.swift in Sources */,
+				B78C2D27286677C2006CCAD0 /* DonutChartView.swift in Sources */,
+				B78C2D2428667545006CCAD0 /* DetailedAnaylsisView.swift in Sources */,
 				B78C2D1328659A94006CCAD0 /* CalendarView.swift in Sources */,
-				B757023E286392BB0073E49F /* Divider.swift in Sources */,
+				B757023E286392BB0073E49F /* CustomDivider.swift in Sources */,
 				F95AC1302865DD9100F06385 /* TipDetailView.swift in Sources */,
 				B78C2D192865ECBA006CCAD0 /* ItemDetailView.swift in Sources */,
 				F95AC1272865987500F06385 /* Card.swift in Sources */,
@@ -557,6 +601,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		B78C2D28286678E1006CCAD0 /* XCRemoteSwiftPackageReference "SwiftPieChart" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ilamanov/SwiftPieChart";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -564,6 +616,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B78C2D0F28659801006CCAD0 /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
+		};
+		B78C2D29286678E1006CCAD0 /* SwiftPieChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B78C2D28286678E1006CCAD0 /* XCRemoteSwiftPackageReference "SwiftPieChart" */;
+			productName = SwiftPieChart;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

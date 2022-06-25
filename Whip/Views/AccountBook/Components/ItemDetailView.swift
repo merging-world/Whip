@@ -100,7 +100,7 @@ extension ItemDetailView {
                 
                 self.lineNextIcon
             }
-            Divider(height: 1, horizontalPadding: 24)
+            CustomDivider(height: 1, horizontalPadding: 24)
                 .padding(.vertical, 12)
         }
     }
@@ -114,7 +114,7 @@ extension ItemDetailView {
                 
                 self.lineNextIcon
             }
-            Divider(height: 1, horizontalPadding: 24)
+            CustomDivider(height: 1, horizontalPadding: 24)
                 .padding(.vertical, 12)
         }
     }
@@ -131,7 +131,7 @@ extension ItemDetailView {
                 
                 self.lineNextIcon
             }
-            Divider(height: 1, horizontalPadding: 24)
+            CustomDivider(height: 1, horizontalPadding: 24)
                 .padding(.vertical, 12)
         }
     }
@@ -148,7 +148,7 @@ extension ItemDetailView {
                 
                 self.lineNextIcon
             }
-            Divider(height: 1, horizontalPadding: 24)
+            CustomDivider(height: 1, horizontalPadding: 24)
                 .padding(.vertical, 12)
         }
     }
@@ -165,7 +165,7 @@ extension ItemDetailView {
                 
                 self.lineNextIcon
             }
-            Divider(height: 1, horizontalPadding: 24)
+            CustomDivider(height: 1, horizontalPadding: 24)
                 .padding(.vertical, 12)
         }
     }
@@ -183,7 +183,7 @@ extension ItemDetailView {
                 
                 self.lineNextIcon
             }
-            Divider(height: 1, horizontalPadding: 24)
+            CustomDivider(height: 1, horizontalPadding: 24)
                 .padding(.vertical, 12)
         }
     }
