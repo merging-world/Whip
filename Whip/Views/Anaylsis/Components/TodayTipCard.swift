@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-struct Tip: Hashable {
-    let title: String
-}
-
 struct TodayTipCard: View {
     let tips: [Tip] = [
         Tip(title: "지역 화폐를 만들어보세요 💸"),

@@ -27,6 +27,7 @@ struct BaseView: View {
                     .background(Color.white)
                     .shadow(color: Color.black.opacity(0.08), radius: 12, x: 0, y: 0)
             }
+            .edgesIgnoringSafeArea(.top)
         }
     }
 }
