@@ -178,7 +178,7 @@ extension ItemDetailView {
             HStack(spacing: 0) {
                 self.kindText("결제수단")
                 
-                TextField("", text: .constant("부자되세요 더 마일리지카드(체크)"))
+                TextField("", text: .constant("비씨 신용카드"))
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.fontColor)
                     .padding(.leading, 20)
@@ -197,7 +197,7 @@ extension ItemDetailView {
             HStack(spacing: 0) {
                 self.kindText("날짜")
                 
-                Text("2022년 6월 24일 오후 3:13")
+                Text("2022년 6월 25일 오후 3:22")
                     .font(.system(size: 16))
                     .fontWeight(.semibold)
                     .foregroundColor(.fontColor)
