@@ -22,9 +22,6 @@ struct OCRView: View {
                     }
                 
                 VStack {
-                    Divider()
-                        .padding(.horizontal, 17)
-                        .padding(.top, 40)
                     
                     HStack{
                         Spacer()
@@ -53,6 +50,7 @@ struct OCRView: View {
                         }
                         Spacer()
                     }
+                    .padding(.top, 20)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)

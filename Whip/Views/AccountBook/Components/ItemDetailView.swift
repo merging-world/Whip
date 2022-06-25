@@ -62,9 +62,9 @@ struct ItemDetailView: View {
                 self.removeToggle
                 Spacer()
                 
-                if self.isNew {
-                    Text(self.viewModel.model.resultText)
-                }
+//                if self.isNew {
+//                    Text(self.viewModel.model.resultText)
+//                }
                 
                 self.saveButton
             }
