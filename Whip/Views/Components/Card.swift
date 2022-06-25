@@ -11,6 +11,7 @@ struct Card: View {
     let child: AnyView
     var color: Color?
     var padding: Int?
+    var hasShadow: Bool = true
     
     init(_ child: AnyView, color: Color?) {
         self.child = child
@@ -23,6 +24,13 @@ struct Card: View {
         self.padding = padding
     }
     
+    init(_ child: AnyView, color: Color?, padding: Int, hasShadow: Bool) {
+        self.child = child
+        self.color = color ?? Color.white
+        self.padding = padding
+        self.hasShadow = hasShadow
+    }
+    
     var body: some View {
         VStack {
             self.child
@@ -30,7 +38,7 @@ struct Card: View {
         .padding(.all, CGFloat(padding ?? 24))
         .background(color)
         .cornerRadius(15)
-        .shadow(color: Color.black.opacity(0.08), radius: 26, x: 0, y: 0)
+        .shadow(color: Color.black.opacity(hasShadow == true ? 0.08 : 0), radius: 26, x: 0, y: 0)
     }
 }
 
