@@ -18,6 +18,25 @@ struct ChallengeDetailView: View {
     
     @State var goSuccessView = false
     
+    @State var isOn = [false, false, false] {
+        didSet {
+            switch self.isOn.filter { $0 }.count {
+            case 0:
+                self.percentage = 0
+            case 1:
+                self.percentage = 30
+            case 2:
+                self.percentage = 60
+            case 3:
+                self.percentage = 100
+            default :
+                self.percentage = 0
+            }
+        }
+    }
+    
+    @State var percentage = 0
+    
     func getOffsetY(basedOn geo: GeometryProxy) -> CGFloat {
         // Find Y position
         let minY = geo.frame(in: .global).minY
@@ -86,7 +105,8 @@ struct ChallengeDetailView: View {
                                     VStack(alignment: .leading, spacing: 8) {
                                         Text("진행률")
                                             .font(.system(size: 18))
-                                        Text("\(Int(challenge.percent * 100))%")
+//                                        Text("\(Int(challenge.percent * 100))%")
+                                        Text("\(percentage)%")
                                             .font(.system(size: 28))
                                             .fontWeight(.bold)
                                             .foregroundColor(challenge.color)
@@ -102,7 +122,7 @@ struct ChallengeDetailView: View {
                                     VStack(alignment: .leading, spacing: 8) {
                                         Text("남은 시간")
                                             .font(.system(size: 18))
-                                        Text("15일")
+                                        Text("7일")
                                             .font(.system(size: 28))
                                             .fontWeight(.bold)
                                             .foregroundColor(challenge.color)
@@ -116,38 +136,81 @@ struct ChallengeDetailView: View {
                     }
                     .padding(24)
                     .padding(.top, 30)
+//                    Card(
+//                        AnyView(
+//                            HStack {
+//                                VStack(alignment: .leading, spacing: 8) {
+//                                    Text("챌린지를  달성하지 못해도 괜찮아요!\n매일 꾸준히 실천하려고 노력하는 것이 중요하답니다.")
+//                                        .font(.system(size: 18))
+//                                }
+//                                Spacer()
+//                            }
+//                            .padding(.bottom, 30)
+//                        ),
+//                        color: nil
+//                    )
+//                    .padding(.horizontal, 24)
+//                    .padding(.bottom, 32)
+                    
                     Card(
                         AnyView(
                             HStack {
                                 VStack(alignment: .leading, spacing: 8) {
-                                    Text("챌린지를  달성하지 못해도 괜찮아요!\n매일 꾸준히 실천하려고 노력하는 것이 중요하답니다.")
-                                        .font(.system(size: 18))
+                                    HStack {
+                                        Text("오늘 챌린지 수행하기")
+                                            .font(.system(size: 18, weight: .medium))
+                                        Spacer()
+                                    }
+                                    ForEach(0..<3, id: \.self) { index in
+                                        HStack {
+                                            Button(action: {
+                                                withAnimation {
+                                                    self.isOn[index].toggle()
+                                                }
+                                            }) {
+                                                Image(systemName: self.isOn[index] ? "checkmark.square.fill" : "square")
+                                                    .resizable()
+                                                    .frame(width: 22, height: 22)
+                                            }
+                                            .foregroundColor(self.isOn[index] ? .carrot : .darkGray)
+                                            
+                                            Text(index == 2 ? "100% 읽기" : "\((index + 1) * 30)% 읽기")
+                                                .font(.system(size: 18, weight: .regular))
+                                                .foregroundColor(.fontColor)
+                                                .padding(.leading, 8)
+                                        }
+                                    }
+                                    .padding(.top, 16)
                                 }
-                                Spacer()
                             }
-                            .padding(.bottom, 30)
+                            .padding(.bottom, 16)
                         ),
                         color: nil
                     )
                     .padding(.horizontal, 24)
                     .padding(.bottom, 32)
+                    
                     NavigationLink(destination: ChallengeSuccessView(), isActive: $goSuccessView) {
-                        Button(action: {
-                            self.goSuccessView = true
-                        }) {
-                            Text("챌린지 수행하기")
-                                .bold()
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                self.goSuccessView = true
+                            }) {
+                                Text("챌린지 완료")
+                                    .font(.system(size: 20, weight: .bold))
+                                    .foregroundColor(.white)
+                            }
+                            Spacer()
                         }
-                        .buttonStyle(
-                            BigButtonStyle(
-                                fontSize: 20,
-                                fontColor: .white,
-                                backgroundColor: challenge.color
-                            )
-                        )
+                        .padding(.vertical, 12)
+                        .contentShape(Rectangle())
+                        .background(self.percentage == 100 ? Color.carrot : Color.modernGray)
+                        .cornerRadius(10)
                         .padding(.horizontal, 24)
-                        .padding(.vertical, 32)
+                        .padding(.top, 8)
+                        .padding(.bottom, 32)
                     }
+                    .disabled(self.percentage != 100)
                 }
             }
         }

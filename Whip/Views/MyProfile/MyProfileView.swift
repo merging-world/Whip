@@ -146,14 +146,48 @@ struct MyProfileView: View {
                     CustomDivider()
                         .padding([.top, .bottom], 16)
                     HStack {
-                        Text("달성한 챌린지")
-                            .font(.system(size: 18))
-                            .fontWeight(.medium)
+                        Text("완료한 챌린지")
+                            .font(.system(size: 18, weight: .medium))
                         Spacer()
                     }
                     .padding([.leading, .trailing], 24)
                     .padding(.top, 8)
                     .padding(.bottom, 16)
+                    
+                    Card(
+                        AnyView(
+                            HStack {
+                                Text("당근 챌린지")
+                                    .font(.system(size: 18, weight: .bold))
+                                    .foregroundColor(.carrot)
+                                Spacer()
+                                Text("14개")
+                                    .font(.system(size: 18, weight: .medium))
+                                    .foregroundColor(.fontColor)
+                            }
+                        ),
+                        color: nil
+                    )
+                    .padding([.leading, .trailing], 24)
+                    .padding([.top, .bottom], 12)
+                    
+                    Card(
+                        AnyView(
+                            HStack {
+                                Text("채찍 챌린지")
+                                    .font(.system(size: 18, weight: .bold))
+                                    .foregroundColor(.whip)
+                                Spacer()
+                                Text("12개")
+                                    .font(.system(size: 18, weight: .medium))
+                                    .foregroundColor(.fontColor)
+                            }
+                        ),
+                        color: nil
+                    )
+                    .padding([.leading, .trailing], 24)
+                    .padding([.top, .bottom], 12)
+                    .padding(.bottom, 12)
                 }
             }
             .navigationBarHidden(true)

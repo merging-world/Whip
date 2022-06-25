@@ -14,6 +14,7 @@ struct CalendarView: UIViewRepresentable {
     var scope: FSCalendarScope
     @Binding var date: Date
     @Binding var toolbarTitle: String
+    @ObservedObject var abViewModel: AccountBookViewModel
     
     func makeUIView(context: Context) -> FSCalendar {
         let calendar = FSCalendar()
@@ -76,6 +77,8 @@ struct CalendarView: UIViewRepresentable {
         // 날짜 선택 시 콜백 메소드
         func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
             self.calendarView.date = date
+            self.calendarView.abViewModel.currentDate = date
+            self.calendarView.abViewModel.change()
         }
         
         func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
@@ -94,11 +97,5 @@ struct CalendarView: UIViewRepresentable {
     
     func makeCoordinator() -> Coordinator {
         return Coordinator(self)
-    }
-}
-
-struct CalendarView_Previews: PreviewProvider {
-    static var previews: some View {
-        CalendarView(scope: .week, date: .constant(Date()), toolbarTitle: .constant(""))
     }
 }

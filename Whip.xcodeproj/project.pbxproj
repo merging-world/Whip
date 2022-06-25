@@ -41,6 +41,9 @@
 		B7DA6A4A28671927005ABC09 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B7DA6A4928671927005ABC09 /* Lottie */; };
 		B7DA6A4D286757C8005ABC09 /* TransactionItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DA6A4C286757C8005ABC09 /* TransactionItemModel.swift */; };
 		B7DA6A4F286774F7005ABC09 /* OCRResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DA6A4E286774F7005ABC09 /* OCRResult.swift */; };
+		B7DA6A5228678843005ABC09 /* AddChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DA6A5128678843005ABC09 /* AddChallengeView.swift */; };
+		B7DA6A5428678C35005ABC09 /* NewChallengeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DA6A5328678C35005ABC09 /* NewChallengeItem.swift */; };
+		B7DA6A5628679940005ABC09 /* AccountBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DA6A5528679940005ABC09 /* AccountBookViewModel.swift */; };
 		F94E9E8E28667BBB007A4BEE /* TipLinkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94E9E8D28667BBB007A4BEE /* TipLinkCard.swift */; };
 		F94E9E9128667C42007A4BEE /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94E9E9028667C42007A4BEE /* Tip.swift */; };
 		F94E9E9328668B56007A4BEE /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94E9E9228668B56007A4BEE /* NavigationController.swift */; };
@@ -92,6 +95,9 @@
 		B78C2D3C2866DC97006CCAD0 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		B7DA6A4C286757C8005ABC09 /* TransactionItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemModel.swift; sourceTree = "<group>"; };
 		B7DA6A4E286774F7005ABC09 /* OCRResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRResult.swift; sourceTree = "<group>"; };
+		B7DA6A5128678843005ABC09 /* AddChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChallengeView.swift; sourceTree = "<group>"; };
+		B7DA6A5328678C35005ABC09 /* NewChallengeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChallengeItem.swift; sourceTree = "<group>"; };
+		B7DA6A5528679940005ABC09 /* AccountBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBookViewModel.swift; sourceTree = "<group>"; };
 		EBFECBFAB9F902EDAA2315D7 /* Pods_Whip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Whip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94E9E8D28667BBB007A4BEE /* TipLinkCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipLinkCard.swift; sourceTree = "<group>"; };
 		F94E9E9028667C42007A4BEE /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
@@ -197,6 +203,7 @@
 				B78C2D2228667524006CCAD0 /* DetailedAnalysis */,
 				B757023F2864533C0073E49F /* Components */,
 				B7570227286362AB0073E49F /* AccountBookView.swift */,
+				B7DA6A5528679940005ABC09 /* AccountBookViewModel.swift */,
 			);
 			path = AccountBook;
 			sourceTree = "<group>";
@@ -261,6 +268,7 @@
 		B757023828638C3C0073E49F /* Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				B7DA6A502867882D005ABC09 /* AddChallenge */,
 				F94E9E9B2866CAA9007A4BEE /* Moel */,
 				F94E9E9428669779007A4BEE /* Components */,
 				B757023928638C570073E49F /* ChallengeView.swift */,
@@ -356,6 +364,15 @@
 				B7DA6A4C286757C8005ABC09 /* TransactionItemModel.swift */,
 			);
 			path = TransactionItem;
+			sourceTree = "<group>";
+		};
+		B7DA6A502867882D005ABC09 /* AddChallenge */ = {
+			isa = PBXGroup;
+			children = (
+				B7DA6A5128678843005ABC09 /* AddChallengeView.swift */,
+				B7DA6A5328678C35005ABC09 /* NewChallengeItem.swift */,
+			);
+			path = AddChallenge;
 			sourceTree = "<group>";
 		};
 		F94E9E8F28667C32007A4BEE /* Model */ = {
@@ -540,6 +557,7 @@
 				F94E9E8E28667BBB007A4BEE /* TipLinkCard.swift in Sources */,
 				B757023428636BD60073E49F /* Views.swift in Sources */,
 				F95AC12A28659B4200F06385 /* ComparedScoreCard.swift in Sources */,
+				B7DA6A5428678C35005ABC09 /* NewChallengeItem.swift in Sources */,
 				B78C2D3B28669F5D006CCAD0 /* CameraViewModel.swift in Sources */,
 				B78C2D1B2865F27E006CCAD0 /* SegementedView.swift in Sources */,
 				B75702412864534C0073E49F /* TransactionItem.swift in Sources */,
@@ -557,6 +575,7 @@
 				F94E9E9328668B56007A4BEE /* NavigationController.swift in Sources */,
 				F94E9E9F2866D1A7007A4BEE /* ChallengeSuccessView.swift in Sources */,
 				B7DA6A4F286774F7005ABC09 /* OCRResult.swift in Sources */,
+				B7DA6A5228678843005ABC09 /* AddChallengeView.swift in Sources */,
 				F94E9E98286697A1007A4BEE /* ChallengeItem.swift in Sources */,
 				B78C2D172865E1DF006CCAD0 /* DailyView.swift in Sources */,
 				B78C2D27286677C2006CCAD0 /* DonutChartView.swift in Sources */,
@@ -565,6 +584,7 @@
 				B7DA6A4D286757C8005ABC09 /* TransactionItemModel.swift in Sources */,
 				B78C2D1328659A94006CCAD0 /* CalendarView.swift in Sources */,
 				B757023E286392BB0073E49F /* CustomDivider.swift in Sources */,
+				B7DA6A5628679940005ABC09 /* AccountBookViewModel.swift in Sources */,
 				F95AC1302865DD9100F06385 /* TipDetailView.swift in Sources */,
 				B78C2D3728669BDF006CCAD0 /* CameraPreviewView.swift in Sources */,
 				B78C2D192865ECBA006CCAD0 /* ItemDetailView.swift in Sources */,

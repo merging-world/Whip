@@ -25,7 +25,7 @@ struct TipLinkCard: View {
                         }
                         Spacer()
                         tipContent.type == 0 ?
-                        Link(destination: URL(string: tipContent.link ?? "https://www.apple.com")!) {
+                        Link(destination: URL(string: "https://www.codeit.kr/courses/sql-database-for-developers/topics/data-analysis-using-sql")!) {
                                 Text("바로가기")
                                     .padding([.top, .bottom], 8)
                                     .padding([.leading, .trailing], 24)

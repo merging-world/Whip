@@ -9,17 +9,10 @@ import SwiftUI
 
 struct AccountBookView: View {
     @State private var mode: AccountBookViewMode = .daily
-    @State var records = [
-        TransactionItemModel(title: "모네 카페", kind: .pay, money: -4000),
-        TransactionItemModel(title: "(주)PoApper", kind: .income, money: 2000000),
-        TransactionItemModel(title: "이규환", kind: .pay, money: -7000),
-        TransactionItemModel(title: "심명진", kind: .income, money: 8000),
-        TransactionItemModel(title: "박건호", kind: .pay, money: -7000),
-    ]
-    @State var date = Date()
     @State var showModal = false
     @StateObject var viewModel = CameraViewModel()
     @State var selectedIndex = 0
+    @StateObject var accountbookViewModel = AccountBookViewModel()
     
     var body: some View {
         NavigationView {
@@ -30,19 +23,19 @@ struct AccountBookView: View {
                             .padding(.top, 52)
                             .padding(.horizontal, 24)
                         
-                        ProgressView()
+                        ProgressView(abViewModel: self.accountbookViewModel)
                             .padding(.horizontal, 24)
                             .padding(.top, 20)
                         
                         CustomDivider()
                             .padding(.top, 24)
                         
-                        self.mode.calenderView(date: self.$date, toolbarTitle: self.$viewModel.model.resultText)
+                        self.mode.calenderView(date: self.$accountbookViewModel.currentDate, toolbarTitle: self.$viewModel.model.resultText, abViewModel: self.accountbookViewModel)
                             .padding(.top, self.mode == .daily ? 24 : 0)
                         
                         
-                        ForEach(0..<self.records.count, id: \.self) { index in
-                                TransactionItem(model: self.records[index])
+                        ForEach(0..<self.accountbookViewModel.records.count, id: \.self) { index in
+                                TransactionItem(model: self.accountbookViewModel.records[index])
                                 .padding(.vertical, 12)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
@@ -54,7 +47,11 @@ struct AccountBookView: View {
                         .offset(y: self.mode == .weekly ? -230 : 0)
                         .padding(.top, 4)
                         .sheet(isPresented: self.$showModal) {
-                            ItemDetailView(showModal: self.$showModal, viewModel: self.viewModel, model: self.records[self.selectedIndex])
+                            ItemDetailView(
+                                showModal: self.$showModal,
+                                viewModel: self.viewModel,
+                                model: self.accountbookViewModel.records[self.selectedIndex]
+                            )
                         }
                     }
                     .padding(.horizontal, 24)
@@ -80,7 +77,7 @@ extension AccountBookView {
                 Text(self.viewModel.model.resultText)
                     .font(.system(size: 20, weight: .medium))
                 
-                Text(self.mode.totalMoney)
+                Text(self.accountbookViewModel.titleMoney)
                     .font(.system(size: 32, weight: .bold))
                     .foregroundColor(.fontColor)
                     .padding(.top, 8)
@@ -110,7 +107,7 @@ enum AccountBookViewMode: String, CaseIterable {
     case monthly = "월간"
     
     @ViewBuilder
-    func calenderView(date: Binding<Date>, toolbarTitle: Binding<String>) -> some View {
+    func calenderView(date: Binding<Date>, toolbarTitle: Binding<String>, abViewModel: AccountBookViewModel) -> some View {
         switch self {
         case .daily:
             DailyView()
@@ -122,13 +119,13 @@ enum AccountBookViewMode: String, CaseIterable {
                     toolbarTitle.wrappedValue = dateFormatter.string(from: Date())
                 }
         case .weekly:
-            CalendarView(scope: .week, date: date, toolbarTitle: toolbarTitle)
+            CalendarView(scope: .week, date: date, toolbarTitle: toolbarTitle, abViewModel: abViewModel)
                 .frame(
                     width: UIScreen.main.bounds.width - 48,
                     height: UIScreen.main.bounds.height / 2.5
                 )
         case .monthly:
-            CalendarView(scope: .month, date: date, toolbarTitle: toolbarTitle)
+            CalendarView(scope: .month, date: date, toolbarTitle: toolbarTitle, abViewModel: abViewModel)
                 .frame(
                     width: UIScreen.main.bounds.width - 48,
                     height: UIScreen.main.bounds.height / 2.5
