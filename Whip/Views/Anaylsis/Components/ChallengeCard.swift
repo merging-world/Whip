@@ -41,7 +41,8 @@ struct ChallengeCard: View {
                 HStack(spacing: 24) {
                     Spacer().frame(width: 20)
                     ForEach(challenges, id: \.self) { item in
-                        challengeItem(item)
+                        ChallengeItem(item)
+                            .frame(width: 320)
                     }
                     Spacer().frame(width: 20)
                 }
@@ -49,50 +50,6 @@ struct ChallengeCard: View {
             }
             .padding(-20)
         }
-    }
-    
-    @ViewBuilder
-    func challengeItem(_ item: Challenge) -> some View {
-        Card(
-            AnyView(
-                HStack {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(item.title)
-                            .font(.system(size: 18))
-                            .fontWeight(.medium)
-                        Text(item.desc)
-                            .font(.system(size: 12))
-                            .fontWeight(.medium)
-                            .padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
-                            .background(Color.white)
-                            .foregroundColor(item.color)
-                            .cornerRadius(20)
-                        Spacer().frame(height: 24)
-                        Text(item.content)
-                            .font(.system(size: 24))
-                            .fontWeight(.semibold)
-                    }
-                    .foregroundColor(Color.white)
-                    Spacer()
-                    VStack {
-                        Image(item.image)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 95, height: 95)
-                        ZStack(alignment: .leading) {
-                            RoundedRectangle(cornerRadius: 3)
-                                .fill(Color.white.opacity(0.4))
-                                .frame(width: 80, height: 6)
-                            RoundedRectangle(cornerRadius: 3)
-                                .fill(Color.white)
-                                .frame(width: 80 * CGFloat(item.percent), height: 6)
-                        }
-                    }
-                }
-            ),
-            color: item.color
-        )
-        .frame(width: 320)
     }
 }
 

@@ -33,6 +33,7 @@ struct AnaylsisView: View {
             }
             .navigationBarHidden(true)
         }
+        .edgesIgnoringSafeArea(.top)
     }
 }
 

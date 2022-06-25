@@ -34,6 +34,10 @@
 		B78C2D2A286678E1006CCAD0 /* SwiftPieChart in Frameworks */ = {isa = PBXBuildFile; productRef = B78C2D29286678E1006CCAD0 /* SwiftPieChart */; };
 		B78C2D2F28667C18006CCAD0 /* PieSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D2E28667C18006CCAD0 /* PieSlice.swift */; };
 		B78C2D3228668686006CCAD0 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D3128668686006CCAD0 /* BarChartView.swift */; };
+		F94E9E8E28667BBB007A4BEE /* TipLinkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94E9E8D28667BBB007A4BEE /* TipLinkCard.swift */; };
+		F94E9E9128667C42007A4BEE /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94E9E9028667C42007A4BEE /* Tip.swift */; };
+		F94E9E9328668B56007A4BEE /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94E9E9228668B56007A4BEE /* NavigationController.swift */; };
+		F94E9E98286697A1007A4BEE /* ChallengeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94E9E97286697A1007A4BEE /* ChallengeItem.swift */; };
 		F95AC1272865987500F06385 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95AC1262865987400F06385 /* Card.swift */; };
 		F95AC12A28659B4200F06385 /* ComparedScoreCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95AC12928659B4200F06385 /* ComparedScoreCard.swift */; };
 		F95AC12C2865AA3F00F06385 /* ChallengeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95AC12B2865AA3F00F06385 /* ChallengeCard.swift */; };
@@ -68,6 +72,10 @@
 		B78C2D26286677C2006CCAD0 /* DonutChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutChartView.swift; sourceTree = "<group>"; };
 		B78C2D2E28667C18006CCAD0 /* PieSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSlice.swift; sourceTree = "<group>"; };
 		B78C2D3128668686006CCAD0 /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
+		F94E9E8D28667BBB007A4BEE /* TipLinkCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipLinkCard.swift; sourceTree = "<group>"; };
+		F94E9E9028667C42007A4BEE /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
+		F94E9E9228668B56007A4BEE /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		F94E9E97286697A1007A4BEE /* ChallengeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeItem.swift; sourceTree = "<group>"; };
 		F95AC1262865987400F06385 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F95AC12928659B4200F06385 /* ComparedScoreCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparedScoreCard.swift; sourceTree = "<group>"; };
 		F95AC12B2865AA3F00F06385 /* ChallengeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCard.swift; sourceTree = "<group>"; };
@@ -127,6 +135,7 @@
 		B7570222286361BC0073E49F /* Anaylsis */ = {
 			isa = PBXGroup;
 			children = (
+				F94E9E8F28667C32007A4BEE /* Model */,
 				F95AC12828659AC300F06385 /* Components */,
 				B7570225286362A00073E49F /* AnaylsisView.swift */,
 				F95AC12F2865DD9100F06385 /* TipDetailView.swift */,
@@ -196,6 +205,7 @@
 			children = (
 				B757023628638B5A0073E49F /* Color.swift */,
 				B7570242286453BC0073E49F /* View.swift */,
+				F94E9E9228668B56007A4BEE /* NavigationController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -203,6 +213,7 @@
 		B757023828638C3C0073E49F /* Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				F94E9E9428669779007A4BEE /* Components */,
 				B757023928638C570073E49F /* ChallengeView.swift */,
 			);
 			path = Challenge;
@@ -263,6 +274,22 @@
 				B78C2D3028668655006CCAD0 /* BarChart */,
 				B78C2D26286677C2006CCAD0 /* DonutChartView.swift */,
 				B78C2D2E28667C18006CCAD0 /* PieSlice.swift */,
+            );
+            path = Components;
+            sourceTree = "<group>";
+        };
+		F94E9E8F28667C32007A4BEE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F94E9E9028667C42007A4BEE /* Tip.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F94E9E9428669779007A4BEE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F94E9E97286697A1007A4BEE /* ChallengeItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -281,6 +308,7 @@
 				F95AC12928659B4200F06385 /* ComparedScoreCard.swift */,
 				F95AC12B2865AA3F00F06385 /* ChallengeCard.swift */,
 				F95AC12D2865B3C800F06385 /* TodayTipCard.swift */,
+				F94E9E8D28667BBB007A4BEE /* TipLinkCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -365,17 +393,21 @@
 			files = (
 				B78C2D2F28667C18006CCAD0 /* PieSlice.swift in Sources */,
 				B7570243286453BC0073E49F /* View.swift in Sources */,
+				F94E9E8E28667BBB007A4BEE /* TipLinkCard.swift in Sources */,
 				B757023428636BD60073E49F /* Views.swift in Sources */,
 				F95AC12A28659B4200F06385 /* ComparedScoreCard.swift in Sources */,
 				B78C2D1B2865F27E006CCAD0 /* SegementedView.swift in Sources */,
 				B75702412864534C0073E49F /* TransactionItem.swift in Sources */,
 				B757022A286362B70073E49F /* MyProfileView.swift in Sources */,
+				F94E9E9128667C42007A4BEE /* Tip.swift in Sources */,
 				B7570217286346860073E49F /* BaseView.swift in Sources */,
 				B7570228286362AB0073E49F /* AccountBookView.swift in Sources */,
 				F95AC12E2865B3C800F06385 /* TodayTipCard.swift in Sources */,
 				B7570226286362A00073E49F /* AnaylsisView.swift in Sources */,
 				B78C2D3228668686006CCAD0 /* BarChartView.swift in Sources */,
 				B7570215286346860073E49F /* WhipApp.swift in Sources */,
+				F94E9E9328668B56007A4BEE /* NavigationController.swift in Sources */,
+				F94E9E98286697A1007A4BEE /* ChallengeItem.swift in Sources */,
 				B78C2D172865E1DF006CCAD0 /* DailyView.swift in Sources */,
 				B78C2D27286677C2006CCAD0 /* DonutChartView.swift in Sources */,
 				B78C2D2428667545006CCAD0 /* DetailedAnaylsisView.swift in Sources */,
