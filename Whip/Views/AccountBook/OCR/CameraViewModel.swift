@@ -10,7 +10,7 @@ import AVFoundation
 import Combine
 
 class CameraViewModel: ObservableObject {
-    private let model: Camera
+    @Published var model: Camera
     private let session: AVCaptureSession
     let cameraPreview: AnyView
     
@@ -34,16 +34,15 @@ class CameraViewModel: ObservableObject {
     
     func capturePhoto() {
         model.capturePhoto()
-        print("[CameraViewModel]: Photo captured!")
     }
-    
     func changeCamera() {
         print("[CameraViewModel]: Camera changed!")
     }
     
     init() {
-        model = Camera()
-        session = model.session
+        let temp = Camera()
+        model = temp
+        session = temp.session
         cameraPreview = AnyView(CameraPreviewView(session: session).frame(width: UIScreen.main.bounds.width, height: 520))
         
         model.$recentImage.sink { [weak self] (photo) in
@@ -52,4 +51,6 @@ class CameraViewModel: ObservableObject {
         }
         .store(in: &self.subscriptions)
     }
+    
+    
 }

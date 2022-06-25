@@ -11,7 +11,9 @@ struct ItemDetailView: View {
     @Binding var showModal: Bool
     @State var isRemove = true
     @State var selectedKind: Kind = .pay
-
+    var isNew = false
+    @ObservedObject var viewModel: CameraViewModel
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -39,8 +41,6 @@ struct ItemDetailView: View {
                 self.kindLine
                     .padding(.top, 16)
                 
-                self.categoryLine
-                
                 self.tradePlaceLine
                 
                 self.paymentLine
@@ -51,6 +51,10 @@ struct ItemDetailView: View {
                 
                 self.removeToggle
                 Spacer()
+                
+                if self.isNew {
+                    Text(self.viewModel.model.resultText)
+                }
                 
                 self.saveButton
             }
@@ -253,11 +257,5 @@ enum Kind: String, CaseIterable {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(lineWidth: 1)
             )
-    }
-}
-
-struct ItemDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        ItemDetailView(showModal: .constant(false))
     }
 }

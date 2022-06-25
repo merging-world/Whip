@@ -9,10 +9,10 @@ import SwiftUI
 
 struct AccountBookView: View {
     @State private var mode: AccountBookViewMode = .daily
-    
     @State var records = ["Digi", "Steve", "Hwana", "Jessica", "Bean"]
     @State var date = Date()
     @State var showModal = false
+    @StateObject var viewModel = CameraViewModel()
     
     var body: some View {
         NavigationView {
@@ -23,10 +23,14 @@ struct AccountBookView: View {
                             .padding(.top, 52)
                             .padding(.horizontal, 24)
                         
+                        ProgressView()
+                            .padding(.horizontal, 24)
+                            .padding(.top, 20)
+                        
                         CustomDivider()
                             .padding(.top, 24)
                         
-                        self.mode.calenderView(date: self.$date)
+                        self.mode.calenderView(date: self.$date, toolbarTitle: self.$viewModel.model.resultText)
                             .padding(.top, self.mode == .daily ? 24 : 0)
                         
                         
@@ -58,7 +62,7 @@ struct AccountBookView: View {
                         .offset(y: self.mode == .weekly ? -230 : 0)
                         .padding(.top, 4)
                         .sheet(isPresented: self.$showModal) {
-                            ItemDetailView(showModal: self.$showModal)
+                            ItemDetailView(showModal: self.$showModal, viewModel: self.viewModel)
                         }
                         
                     }
@@ -78,11 +82,11 @@ struct AccountBookView: View {
 
 extension AccountBookView {
     @ViewBuilder
-    func toolbar(date: Date = Date()) -> some View {
+    func toolbar() -> some View {
         HStack(alignment: .top, spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {
                 HStack {
-                    Text("6월 24일")
+                    Text(self.viewModel.model.resultText)
                     Image(systemName: "chevron.down")
                 }
                 .font(.system(size: 20))
@@ -118,19 +122,25 @@ enum AccountBookViewMode: String, CaseIterable {
     case monthly = "월간"
     
     @ViewBuilder
-    func calenderView(date: Binding<Date>) -> some View {
+    func calenderView(date: Binding<Date>, toolbarTitle: Binding<String>) -> some View {
         switch self {
         case .daily:
             DailyView()
                 .frame(width: UIScreen.main.bounds.width - 48)
+                .onAppear {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "M월 dd일"
+                    dateFormatter.locale = Locale(identifier:"ko_KR")
+                    toolbarTitle.wrappedValue = dateFormatter.string(from: Date())
+                }
         case .weekly:
-            CalendarView(scope: .week, date: date)
+            CalendarView(scope: .week, date: date, toolbarTitle: toolbarTitle)
                 .frame(
                     width: UIScreen.main.bounds.width - 48,
                     height: UIScreen.main.bounds.height / 2.5
                 )
         case .monthly:
-            CalendarView(scope: .month, date: date)
+            CalendarView(scope: .month, date: date, toolbarTitle: toolbarTitle)
                 .frame(
                     width: UIScreen.main.bounds.width - 48,
                     height: UIScreen.main.bounds.height / 2.5

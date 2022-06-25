@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TipLinkCard: View {
     let tipContent: TipContent
+    var isDetailedAnalysis = false
     
     var body: some View {
         Card(
@@ -27,7 +28,7 @@ struct TipLinkCard: View {
                             .padding([.top, .bottom], 8)
                             .padding([.leading, .trailing], 24)
                             .foregroundColor(Color.white)
-                            .background(Color.fontColor)
+                            .background(self.isDetailedAnalysis ? Color.deepGray : Color.fontColor)
                             .cornerRadius(10)
                     }
                     .padding(16)

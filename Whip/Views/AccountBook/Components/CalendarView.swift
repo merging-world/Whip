@@ -13,6 +13,7 @@ struct CalendarView: UIViewRepresentable {
     
     var scope: FSCalendarScope
     @Binding var date: Date
+    @Binding var toolbarTitle: String
     
     func makeUIView(context: Context) -> FSCalendar {
         let calendar = FSCalendar()
@@ -43,6 +44,18 @@ struct CalendarView: UIViewRepresentable {
             calendar.headerHeight = UIScreen.main.bounds.height / 11.0
         }
         calendar.select(Date())
+        
+        let currentPageDate = self.date
+        let month = Calendar.current.component(.month, from: currentPageDate)
+        let week = Calendar.current.component(.weekOfMonth, from: currentPageDate)
+        
+        switch self.scope {
+        case .week:
+            self.toolbarTitle = "\(month)월 \(week)주"
+        case .month:
+            self.toolbarTitle = "\(month)월"
+        }
+        
         return calendar
     }
     
@@ -62,6 +75,19 @@ struct CalendarView: UIViewRepresentable {
         func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
             self.calendarView.date = date
         }
+        
+        func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+            let currentPageDate = calendar.currentPage
+            let month = Calendar.current.component(.month, from: currentPageDate)
+            let week = Calendar.current.component(.weekOfMonth, from: currentPageDate)
+            
+            switch calendar.scope {
+            case .week:
+                self.calendarView.toolbarTitle = "\(month)월 \(week)주"
+            case .month:
+                self.calendarView.toolbarTitle = "\(month)월"
+            }
+        }
     }
     
     func makeCoordinator() -> Coordinator {
@@ -71,6 +97,6 @@ struct CalendarView: UIViewRepresentable {
 
 struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarView(scope: .week, date: .constant(Date()))
+        CalendarView(scope: .week, date: .constant(Date()), toolbarTitle: .constant(""))
     }
 }

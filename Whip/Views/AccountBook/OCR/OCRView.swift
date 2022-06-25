@@ -6,14 +6,11 @@
 //
 
 import SwiftUI
-import MLKitTextRecognitionKorean
-import MLKitVision
 import AVFoundation
 
 struct OCRView: View {
-    @ObservedObject var viewModel = CameraViewModel()
+    @StateObject var viewModel = CameraViewModel()
     @State var isPressed = false
-    @State var resultText = ""
     @Binding var isOnOCRView: Bool
     
     var body: some View {
@@ -34,7 +31,9 @@ struct OCRView: View {
                         // 사진찍기 버튼
                         Button(action: {
                             viewModel.capturePhoto()
-                            self.isPressed = true
+                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                                self.isPressed = true
+                            }
                         }) {
                             VStack {
                                 Circle()
@@ -49,26 +48,12 @@ struct OCRView: View {
                                     .foregroundColor(.carrot)
                             }
                         }
-                        .background(
-                            NavigationLink(isActive: self.$isPressed, destination: {
-                                if let previewImage = viewModel.recentImage {
-                                    VStack {
-                                        Image(uiImage: previewImage)
-                                            .resizable()
-                                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.6)
-                                        
-                                        Spacer()
-                                        Text(self.resultText)
-                                            .foregroundColor(.fontColor)
-                                            .onAppear {
-                                                getText(image: previewImage)
-                                            }
-                                        Spacer()
-                                    }
-                                    .navigationBarTitleDisplayMode(.inline)
+                        .sheet(isPresented: self.$isPressed) {
+                            ItemDetailView(showModal: self.$isPressed, isNew: true, viewModel: self.viewModel)
+                                .task {
+                                    
                                 }
-                            }, label: { EmptyView() })
-                        )
+                        }
                         Spacer()
                     }
                 }
@@ -82,48 +67,5 @@ struct OCRView: View {
                 }
             }
         }
-    }
-}
-
-extension OCRView {
-    func getText(image: UIImage) {
-        let koreanOptions = KoreanTextRecognizerOptions()
-        let textRecognizer = TextRecognizer.textRecognizer(options: koreanOptions)
-        let visionImage = VisionImage(image: image)
-        visionImage.orientation = imageOrientation(deviceOrientation: UIDevice.current.orientation, cameraPosition: .back)
-        
-        textRecognizer.process(visionImage) { result, error in
-            guard error == nil, let result = result else {
-                //error handling
-                return
-            }
-            //결과값 출력
-            self.resultText = result.text
-        }
-    }
-    func imageOrientation(
-        deviceOrientation: UIDeviceOrientation,
-        cameraPosition: AVCaptureDevice.Position
-    ) -> UIImage.Orientation {
-        switch deviceOrientation {
-        case .portrait:
-            return cameraPosition == .front ? .leftMirrored : .right
-        case .landscapeLeft:
-            return cameraPosition == .front ? .downMirrored : .up
-        case .portraitUpsideDown:
-            return cameraPosition == .front ? .rightMirrored : .left
-        case .landscapeRight:
-            return cameraPosition == .front ? .upMirrored : .down
-        case .faceDown, .faceUp, .unknown:
-            return .up
-        default :
-            return .up
-        }
-    }
-}
-
-struct OCRView_Previews: PreviewProvider {
-    static var previews: some View {
-        OCRView(isOnOCRView: .constant(true))
     }
 }

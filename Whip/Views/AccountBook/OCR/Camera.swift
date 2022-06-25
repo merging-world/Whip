@@ -7,13 +7,20 @@
 
 import SwiftUI
 import AVFoundation
+import MLKitTextRecognitionKorean
+import MLKitVision
 
 class Camera: NSObject, ObservableObject {
     var session = AVCaptureSession()
     var videoDeviceInput: AVCaptureDeviceInput!
     let output = AVCapturePhotoOutput()
     var photoData = Data(count: 0)
-    @Published var recentImage: UIImage?
+    @Published var recentImage: UIImage? {
+        didSet {
+            self.getText(image: self.recentImage!)
+        }
+    }
+    @Published var resultText = ""
     
     func setUpCamera() {
         if let device = AVCaptureDevice.default(.builtInWideAngleCamera,
@@ -93,5 +100,42 @@ extension Camera: AVCapturePhotoCaptureDelegate {
 //        self.savePhoto(imageData)
         
         print("[CameraModel]: Capture routine's done")
+    }
+}
+
+extension Camera {
+    func getText(image: UIImage) {
+        let koreanOptions = KoreanTextRecognizerOptions()
+        let textRecognizer = TextRecognizer.textRecognizer(options: koreanOptions)
+        let visionImage = VisionImage(image: image)
+        visionImage.orientation = imageOrientation(deviceOrientation: UIDevice.current.orientation, cameraPosition: .back)
+        
+        textRecognizer.process(visionImage) { result, error in
+            guard error == nil, let result = result else {
+                //error handling
+                return
+            }
+            //결과값 출력
+            self.resultText = result.text
+        }
+    }
+    func imageOrientation(
+        deviceOrientation: UIDeviceOrientation,
+        cameraPosition: AVCaptureDevice.Position
+    ) -> UIImage.Orientation {
+        switch deviceOrientation {
+        case .portrait:
+            return cameraPosition == .front ? .leftMirrored : .right
+        case .landscapeLeft:
+            return cameraPosition == .front ? .downMirrored : .up
+        case .portraitUpsideDown:
+            return cameraPosition == .front ? .rightMirrored : .left
+        case .landscapeRight:
+            return cameraPosition == .front ? .upMirrored : .down
+        case .faceDown, .faceUp, .unknown:
+            return .up
+        default :
+            return .up
+        }
     }
 }
