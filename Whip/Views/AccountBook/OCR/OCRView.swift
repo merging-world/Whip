@@ -14,87 +14,73 @@ struct OCRView: View {
     @ObservedObject var viewModel = CameraViewModel()
     @State var isPressed = false
     @State var resultText = ""
+    @Binding var isOnOCRView: Bool
     
     var body: some View {
-        ZStack {
-            viewModel.cameraPreview.ignoresSafeArea()
-                .onAppear {
-                    viewModel.configure()
-                }
-            
+        NavigationView {
             VStack {
-                Spacer()
-                
-                HStack{
-                    // 찍은 사진 미리보기, 일단 액션 X
-//                    Button(action: {}) {
-//                        // ✅ view 추가
-//                        if let previewImage = viewModel.recentImage {
-//                            Image(uiImage: previewImage)
-//                                .resizable()
-//                                .scaledToFill()
-//                                .frame(width: 75, height: 75)
-//                                .clipShape(RoundedRectangle(cornerRadius: 15))
-//                                .aspectRatio(1, contentMode: .fit)
-//                        } else {
-//                            // ✅ linewidth 살짝 수정
-//                            RoundedRectangle(cornerRadius: 15)
-//                                .stroke(lineWidth: 3)
-//                                .foregroundColor(.white)
-//                                .frame(width: 75, height: 75)
-//                        }
-//                    }
-//                    .padding()
-                    
-                    Spacer()
-                    
-                    // 사진찍기 버튼
-                    Button(action: {
-                        viewModel.capturePhoto()
-                        self.isPressed = true
-                    }) {
-                        Circle()
-                            .stroke(lineWidth: 5)
-                            .frame(width: 75, height: 75)
-                            .padding()
+                viewModel.cameraPreview
+                    .onAppear {
+                        viewModel.configure()
                     }
-                    .background(
-                        NavigationLink(isActive: self.$isPressed, destination: {
-                            if let previewImage = viewModel.recentImage {
-                                VStack {
-//                                    Image(uiImage: previewImage)
-//                                        .resizable()
-//                                        .scaledToFit()
-////                                        .frame(width: UIScreen.main.bounds.width)
-//                                        .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.8)
-                                    
-                                    Text(self.resultText)
-                                        .foregroundColor(.fontColor)
-                                        .onAppear {
-                                            getText(image: previewImage)
-                                        }
-                                        
-                                }
-                                .navigationBarTitleDisplayMode(.inline)
+                
+                VStack {
+                    Divider()
+                        .padding(.horizontal, 17)
+                        .padding(.top, 40)
+                    
+                    HStack{
+                        Spacer()
+                        // 사진찍기 버튼
+                        Button(action: {
+                            viewModel.capturePhoto()
+                            self.isPressed = true
+                        }) {
+                            VStack {
+                                Circle()
+                                    .stroke(lineWidth: 5)
+                                    .fill(Color.carrot)
+                                    .frame(width: 80, height: 80)
+                                    .padding()
+                                    .shadow(color: Color(red: 40/255, green: 67/255, blue: 135/255).opacity(0.25), radius: 10, x: 0, y: 4)
+                                
+                                Text("촬영")
+                                    .font(.system(size: 16))
+                                    .foregroundColor(.carrot)
                             }
-                        }, label: { EmptyView() })
-                    )
-                    
-                    Spacer()
-                    
-                    // 전후면 카메라 교체
-//                    Button(action: {viewModel.changeCamera()}) {
-//                        Image(systemName: "arrow.triangle.2.circlepath.camera")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: 50, height: 50)
-//                        
-//                    }
-//                    .frame(width: 75, height: 75)
-//                    .padding()
+                        }
+                        .background(
+                            NavigationLink(isActive: self.$isPressed, destination: {
+                                if let previewImage = viewModel.recentImage {
+                                    VStack {
+                                        Image(uiImage: previewImage)
+                                            .resizable()
+                                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.6)
+                                        
+                                        Spacer()
+                                        Text(self.resultText)
+                                            .foregroundColor(.fontColor)
+                                            .onAppear {
+                                                getText(image: previewImage)
+                                            }
+                                        Spacer()
+                                    }
+                                    .navigationBarTitleDisplayMode(.inline)
+                                }
+                            }, label: { EmptyView() })
+                        )
+                        Spacer()
+                    }
                 }
             }
-            .foregroundColor(.white)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("닫기") {
+                        self.isOnOCRView = false
+                    }
+                }
+            }
         }
     }
 }
@@ -130,12 +116,14 @@ extension OCRView {
             return cameraPosition == .front ? .upMirrored : .down
         case .faceDown, .faceUp, .unknown:
             return .up
+        default :
+            return .up
         }
     }
 }
 
 struct OCRView_Previews: PreviewProvider {
     static var previews: some View {
-        OCRView()
+        OCRView(isOnOCRView: .constant(true))
     }
 }

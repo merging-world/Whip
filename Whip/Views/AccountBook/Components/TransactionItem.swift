@@ -24,10 +24,11 @@ struct TransactionItem: View {
         HStack(spacing: 12) {
             ZStack {
                 // TODO: 아이콘 변경하기
-                Text("ㅋ")
+                Image(systemName: "arrow.left.arrow.right")
+                    .foregroundColor(.whip)
             }
             .frame(width: 42, height: 42, alignment: .center)
-            .background(Color.carrot)
+            .background(Color.greenHalf)
             .cornerRadius(21)
             VStack(alignment: .leading, spacing: 6) {
                 Text(title)

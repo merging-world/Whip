@@ -10,49 +10,53 @@ import SwiftUI
 struct ItemDetailView: View {
     @Binding var showModal: Bool
     @State var isRemove = true
+    @State var selectedKind: Kind = .pay
 
     var body: some View {
-        VStack {
-            HStack(alignment: .top) {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("50,000원")
-                        .font(.system(size: 30))
+        NavigationView {
+            VStack {
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("50,000원")
+                            .font(.system(size: 30))
+                        
+                        Text("명세서 I 인식 금액 50,000원")
+                            .font(.system(size: 18))
+                            .foregroundColor(.gray)
+                            .padding(.top, 12)
+                    }
+                    Spacer()
                     
-                    Text("명세서 I 인식 금액 50,000원")
-                        .font(.system(size: 18))
-                        .foregroundColor(.gray)
-                        .padding(.top, 12)
+                    Image(systemName: "xmark")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                        .onTapGesture {
+                            self.showModal = false
+                        }
                 }
+                .padding(.top, 52)
+                
+                self.kindLine
+                    .padding(.top, 16)
+                
+                self.categoryLine
+                
+                self.tradePlaceLine
+                
+                self.paymentLine
+                
+                self.dateLine
+                
+                self.memoLine
+                
+                self.removeToggle
                 Spacer()
                 
-                Image(systemName: "xmark")
-                    .resizable()
-                    .frame(width: 24, height: 24)
-                    .onTapGesture {
-                        self.showModal = false
-                    }
+                self.saveButton
             }
-            .padding(.top, 52)
-            
-            self.kindLine
-                .padding(.top, 16)
-            
-            self.categoryLine
-            
-            self.tradePlaceLine
-            
-            self.paymentLine
-            
-            self.dateLine
-            
-            self.memoLine
-            
-            self.removeToggle
-            Spacer()
-            
-            self.saveButton
+            .padding(.horizontal, 24)
+            .navigationBarHidden(true)
         }
-        .padding(.horizontal, 24)
     }
 }
 
@@ -80,7 +84,6 @@ extension ItemDetailView {
                 backgroundColor: .carrot
             )
         )
-        .padding(.horizontal, 24)
     }
     
     @ViewBuilder
@@ -94,10 +97,21 @@ extension ItemDetailView {
     @ViewBuilder
     var kindLine: some View {
         VStack {
-            HStack(spacing: 0) {
+            HStack(alignment: .bottom, spacing: 0) {
                 self.kindText("분류")
-                Spacer()
                 
+                HStack(spacing: 8) {
+                    ForEach(Kind.allCases, id: \.self) { kind in
+                        kind.buttonView
+                            .foregroundColor(kind == self.selectedKind ? kind.color : .modernGray)
+                            .onTapGesture {
+                                self.selectedKind = kind
+                            }
+                    }
+                }
+                .padding(.leading, 48)
+                .offset(y: 8)
+                Spacer()
                 self.lineNextIcon
             }
             CustomDivider(height: 1, horizontalPadding: 24)
@@ -177,7 +191,7 @@ extension ItemDetailView {
                 self.kindText("메모")
                 
                 Text("메모 및 #태그를 입력해주세요")
-                    .foregroundColor(.gray)
+                    .foregroundColor(.modernGray)
                     .padding(.leading, 48)
                 Spacer()
                 
@@ -209,6 +223,36 @@ extension ItemDetailView {
             Toggle(isOn: self.$isRemove, label: { })
                 .frame(width: 120)
         }
+    }
+}
+
+enum Kind: String, CaseIterable {
+    case pay = "지출"
+    case income = "수입"
+    case transfer = "이체"
+    
+    var color: Color {
+        switch self {
+        case .pay:
+            return .whip
+        case .income:
+            return .carrot
+        case .transfer:
+            return .carrot
+        }
+    }
+    
+    @ViewBuilder
+    var buttonView: some View {
+        Text(self.rawValue)
+            .font(.system(size: 16))
+            .padding(.horizontal, 16)
+            .padding(.vertical, 8)
+            .lineLimit(1)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(lineWidth: 1)
+            )
     }
 }
 

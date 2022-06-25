@@ -16,7 +16,7 @@ class CameraViewModel: ObservableObject {
     
     private var subscriptions = Set<AnyCancellable>()
     @Published var recentImage: UIImage?
-
+    
     @Published var isFlashOn = false
     @Published var isSilentModeOn = false
     
@@ -44,12 +44,12 @@ class CameraViewModel: ObservableObject {
     init() {
         model = Camera()
         session = model.session
-        cameraPreview = AnyView(CameraPreviewView(session: session))
+        cameraPreview = AnyView(CameraPreviewView(session: session).frame(width: UIScreen.main.bounds.width, height: 520))
         
         model.$recentImage.sink { [weak self] (photo) in
-                    guard let pic = photo else { return }
-                    self?.recentImage = pic
-                }
-                .store(in: &self.subscriptions)
+            guard let pic = photo else { return }
+            self?.recentImage = pic
+        }
+        .store(in: &self.subscriptions)
     }
 }

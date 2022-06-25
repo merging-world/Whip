@@ -13,11 +13,10 @@ struct CustomDivider: View {
     
     var body: some View {
         Rectangle()
-            .foregroundColor(.divider)
+            .foregroundColor(.lightGray)
             .frame(
                 width: UIScreen.main.bounds.width - self.horizontalPadding * 2,
-                height: self.height,
-                alignment: .center
+                height: self.height
             )
     }
 }

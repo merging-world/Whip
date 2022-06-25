@@ -28,7 +28,7 @@ struct CalendarView: UIViewRepresentable {
         
         calendar.appearance.titleDefaultColor = UIColor(.calendarText)  // 평일
         calendar.appearance.titleWeekendColor = UIColor(.calendarText)    // 주말
-        calendar.appearance.todayColor = UIColor(.whip)
+        calendar.appearance.selectionColor = UIColor(.whip)
         calendar.appearance.subtitlePlaceholderColor = UIColor(.subtitlePlaceholder)
         
         calendar.appearance.titleFont = .boldSystemFont(ofSize: 13)
@@ -42,12 +42,13 @@ struct CalendarView: UIViewRepresentable {
         } else {
             calendar.headerHeight = UIScreen.main.bounds.height / 11.0
         }
-        
+        calendar.select(Date())
         return calendar
     }
     
     func updateUIView(_ uiView: FSCalendar, context: Context) {
-        
+        uiView.appearance.todayColor = .white
+        uiView.appearance.titleTodayColor = UIColor(.calendarText)
     }
     
     class Coordinator: NSObject, FSCalendarDelegate, FSCalendarDataSource {

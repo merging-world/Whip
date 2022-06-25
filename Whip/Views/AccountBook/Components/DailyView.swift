@@ -8,53 +8,40 @@
 import SwiftUI
 
 struct DailyView: View {
+    @State var isFullScreenOver = false
+    
     var body: some View {
         VStack(spacing: 0) {
-            VStack(spacing: 0) {
-                HStack(spacing: 0) {
-                    Text("지출")
-                        .font(.system(size: 12))
-                        .foregroundColor(.fontColor)
-                    
-                    Text("24,552원")
-                        .font(.system(size: 16))
-                        .foregroundColor(.whip)
-                        .padding(.leading, 12)
-                    Spacer()
-                }
-                HStack(spacing: 0) {
-                    Text("수입")
-                        .font(.system(size: 12))
-                        .foregroundColor(.fontColor)
-                    
-                    Text("24,552원")
-                        .font(.system(size: 16))
-                        .foregroundColor(.carrot)
-                        .padding(.leading, 12)
-                    Spacer()
-                }
-                .padding(.top, 12)
-            }
-            
             HStack(spacing: 0) {
                 Text("전체 내역")
+                    .font(.system(size: 18))
+                    .bold()
+                
                 Spacer()
                 Text("+ 내역 추가")
+                    .font(.system(size: 16))
+                    .onTapGesture {
+                        self.isFullScreenOver = true
+                    }
+                    .fullScreenCover(isPresented: self.$isFullScreenOver) {
+                        OCRView(isOnOCRView: self.$isFullScreenOver)
+                    }
+                    .foregroundColor(.blueGray)
             }
             .font(.system(size: 14))
-            .padding(.top, 24)
+            .padding(.top, 16)
             
             HStack(spacing: 0) {
                 Text("28일 월요일")
+                    .font(.system(size: 16))
                 Spacer()
-                Text("+92,233원")
-                    .foregroundColor(.carrot)
-                    .padding(.leading, 12)
-                Text("-192,233원")
-                    .foregroundColor(.whip)
             }
             .font(.system(size: 16))
             .padding(.top, 24)
+            
+            Divider()
+                .padding(.top, 16)
+                .padding(.bottom, 20)
         }
     }
 }

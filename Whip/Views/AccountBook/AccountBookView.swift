@@ -8,19 +8,10 @@
 import SwiftUI
 
 struct AccountBookView: View {
-    init() {
-        UISegmentedControl.appearance().selectedSegmentTintColor = .orange
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-        UISegmentedControl.appearance().backgroundColor = .white
-    }
     @State private var mode: AccountBookViewMode = .daily
     
     @State var records = ["Digi", "Steve", "Hwana", "Jessica", "Bean"]
-    @State var date = Date() {
-        didSet {
-            print(self.date)
-        }
-    }
+    @State var date = Date()
     @State var showModal = false
     
     var body: some View {
@@ -29,14 +20,15 @@ struct AccountBookView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(spacing: 0) {
                         self.toolbar()
-                            .padding(.top, 12)
+                            .padding(.top, 52)
+                            .padding(.horizontal, 24)
+                        
+                        CustomDivider()
+                            .padding(.top, 24)
                         
                         self.mode.calenderView(date: self.$date)
                             .padding(.top, self.mode == .daily ? 24 : 0)
                         
-                        CustomDivider(height: 1, horizontalPadding: 24)
-                            .offset(y: self.mode == .weekly ? -240 : 0)
-                            .padding(.top, 12)
                         
                         ForEach(self.records, id: \.self) {
                             if self.mode == .weekly || self.mode == .daily {
@@ -62,6 +54,7 @@ struct AccountBookView: View {
                                 }
                             }
                         }
+                        .padding(.horizontal, 24)
                         .offset(y: self.mode == .weekly ? -230 : 0)
                         .padding(.top, 4)
                         .sheet(isPresented: self.$showModal) {
@@ -86,27 +79,25 @@ struct AccountBookView: View {
 extension AccountBookView {
     @ViewBuilder
     func toolbar(date: Date = Date()) -> some View {
-        HStack(spacing: 0) {
-            Text("22")
-                .font(.system(size: 44))
-                .bold()
-                .foregroundColor(.fontColor)
-                
+        HStack(alignment: .top, spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {
-                Text("Wed")
+                HStack {
+                    Text("6월 24일")
+                    Image(systemName: "chevron.down")
+                }
+                .font(.system(size: 20))
                 
-                Text("June 2022")
-                    .padding(.top, 6)
+                Text("12,500원")
+                    .font(.system(size: 32))
+                    .bold()
+                    .foregroundColor(.fontColor)
+                    .padding(.top, 8)
             }
-            .font(.system(size: 14))
-            .padding(.leading, 10)
-            .foregroundColor(.gray)
             
             Spacer()
             
             NavigationLink(destination: {
-//                DetailedAnaylsisView()
-                OCRView()
+                DetailedAnaylsisView()
             }) {
                 Text("분석")
                     .font(.system(size: 16))
@@ -131,17 +122,17 @@ enum AccountBookViewMode: String, CaseIterable {
         switch self {
         case .daily:
             DailyView()
-                .frame(width: UIScreen.main.bounds.width - 32)
+                .frame(width: UIScreen.main.bounds.width - 48)
         case .weekly:
             CalendarView(scope: .week, date: date)
                 .frame(
-                    width: UIScreen.main.bounds.width - 32,
+                    width: UIScreen.main.bounds.width - 48,
                     height: UIScreen.main.bounds.height / 2.5
                 )
         case .monthly:
             CalendarView(scope: .month, date: date)
                 .frame(
-                    width: UIScreen.main.bounds.width - 32,
+                    width: UIScreen.main.bounds.width - 48,
                     height: UIScreen.main.bounds.height / 2.5
                 )
         }
