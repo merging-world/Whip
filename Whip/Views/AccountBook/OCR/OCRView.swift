@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import MLKitTextRecognitionKorean
+import MLKitVision
+import AVFoundation
 
 struct OCRView: View {
     @ObservedObject var viewModel = CameraViewModel()
     @State var isPressed = false
+    @State var resultText = ""
     
     var body: some View {
         ZStack {
@@ -58,12 +62,18 @@ struct OCRView: View {
                         NavigationLink(isActive: self.$isPressed, destination: {
                             if let previewImage = viewModel.recentImage {
                                 VStack {
-                                    Image(uiImage: previewImage)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: UIScreen.main.bounds.width)
+//                                    Image(uiImage: previewImage)
+//                                        .resizable()
+//                                        .scaledToFit()
+////                                        .frame(width: UIScreen.main.bounds.width)
+//                                        .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.8)
+                                    
+                                    Text(self.resultText)
+                                        .foregroundColor(.fontColor)
+                                        .onAppear {
+                                            getText(image: previewImage)
+                                        }
                                         
-                                    Spacer()
                                 }
                                 .navigationBarTitleDisplayMode(.inline)
                             }
@@ -85,6 +95,41 @@ struct OCRView: View {
                 }
             }
             .foregroundColor(.white)
+        }
+    }
+}
+
+extension OCRView {
+    func getText(image: UIImage) {
+        let koreanOptions = KoreanTextRecognizerOptions()
+        let textRecognizer = TextRecognizer.textRecognizer(options: koreanOptions)
+        let visionImage = VisionImage(image: image)
+        visionImage.orientation = imageOrientation(deviceOrientation: UIDevice.current.orientation, cameraPosition: .back)
+        
+        textRecognizer.process(visionImage) { result, error in
+            guard error == nil, let result = result else {
+                //error handling
+                return
+            }
+            //결과값 출력
+            self.resultText = result.text
+        }
+    }
+    func imageOrientation(
+        deviceOrientation: UIDeviceOrientation,
+        cameraPosition: AVCaptureDevice.Position
+    ) -> UIImage.Orientation {
+        switch deviceOrientation {
+        case .portrait:
+            return cameraPosition == .front ? .leftMirrored : .right
+        case .landscapeLeft:
+            return cameraPosition == .front ? .downMirrored : .up
+        case .portraitUpsideDown:
+            return cameraPosition == .front ? .rightMirrored : .left
+        case .landscapeRight:
+            return cameraPosition == .front ? .upMirrored : .down
+        case .faceDown, .faceUp, .unknown:
+            return .up
         }
     }
 }

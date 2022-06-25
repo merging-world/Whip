@@ -67,7 +67,6 @@ class Camera: NSObject, ObservableObject {
         let photoSettings = AVCapturePhotoSettings()
         
         self.output.capturePhoto(with: photoSettings, delegate: self)
-        print("[Camera]: Photo's taken")
     }
     
     func savePhoto(_ imageData: Data) {
