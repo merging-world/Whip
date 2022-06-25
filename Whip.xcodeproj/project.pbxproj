@@ -32,7 +32,6 @@
 		B78C2D1E28666F22006CCAD0 /* BigButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D1D28666F22006CCAD0 /* BigButtonStyle.swift */; };
 		B78C2D2428667545006CCAD0 /* DetailedAnaylsisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D2328667545006CCAD0 /* DetailedAnaylsisView.swift */; };
 		B78C2D27286677C2006CCAD0 /* DonutChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D26286677C2006CCAD0 /* DonutChartView.swift */; };
-		B78C2D2A286678E1006CCAD0 /* SwiftPieChart in Frameworks */ = {isa = PBXBuildFile; productRef = B78C2D29286678E1006CCAD0 /* SwiftPieChart */; };
 		B78C2D2F28667C18006CCAD0 /* PieSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D2E28667C18006CCAD0 /* PieSlice.swift */; };
 		B78C2D3228668686006CCAD0 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D3128668686006CCAD0 /* BarChartView.swift */; };
 		B78C2D3528669B79006CCAD0 /* OCRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D3428669B79006CCAD0 /* OCRView.swift */; };
@@ -100,7 +99,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B78C2D2A286678E1006CCAD0 /* SwiftPieChart in Frameworks */,
 				B78C2D1128659801006CCAD0 /* FSCalendar in Frameworks */,
 				6A5F87F658FAA1C1097F57D8 /* Pods_Whip.framework in Frameworks */,
 			);
@@ -123,7 +121,6 @@
 				518103664919A4E5156BF770 /* Pods-Whip.debug.xcconfig */,
 				A7EBEA891FF8E4EC8B67745B /* Pods-Whip.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -379,7 +376,6 @@
 			name = Whip;
 			packageProductDependencies = (
 				B78C2D1028659801006CCAD0 /* FSCalendar */,
-				B78C2D29286678E1006CCAD0 /* SwiftPieChart */,
 			);
 			productName = Whip;
 			productReference = B7570211286346860073E49F /* Whip.app */;
@@ -410,8 +406,7 @@
 			);
 			mainGroup = B7570208286346860073E49F;
 			packageReferences = (
-				B78C2D0F28659801006CCAD0 /* XCRemoteSwiftPackageReference "FSCalendar.git" */,
-				B78C2D28286678E1006CCAD0 /* XCRemoteSwiftPackageReference "SwiftPieChart" */,
+				B78C2D0F28659801006CCAD0 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = B7570212286346860073E49F /* Products */;
 			projectDirPath = "";
@@ -742,7 +737,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B78C2D0F28659801006CCAD0 /* XCRemoteSwiftPackageReference "FSCalendar.git" */ = {
+		B78C2D0F28659801006CCAD0 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
 			requirement = {
@@ -750,26 +745,13 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		B78C2D28286678E1006CCAD0 /* XCRemoteSwiftPackageReference "SwiftPieChart" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ilamanov/SwiftPieChart";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		B78C2D1028659801006CCAD0 /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B78C2D0F28659801006CCAD0 /* XCRemoteSwiftPackageReference "FSCalendar.git" */;
+			package = B78C2D0F28659801006CCAD0 /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
-		};
-		B78C2D29286678E1006CCAD0 /* SwiftPieChart */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B78C2D28286678E1006CCAD0 /* XCRemoteSwiftPackageReference "SwiftPieChart" */;
-			productName = SwiftPieChart;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
