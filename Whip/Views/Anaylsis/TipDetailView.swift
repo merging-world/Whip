@@ -9,23 +9,19 @@ import SwiftUI
 
 struct TipDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+        
+    let tip: Tip
+    let desc: [String]
+    var res: [Text] = []
     
-    let oneDaySemina = Text("원데이 세미나").foregroundColor(Color.carrot)
-    
-    let contents: [TipContent] = [
-        TipContent(title: "스스로 성장하는\n분석가 커리어 만들기", image: "sample1"),
-        TipContent(title: "SQL로 시작하는\n데이터 분석", image: "sample2")
-    ]
-    let contents2: [TipContent] = [
-        TipContent(title: "빅데이터 분석기사"),
-        TipContent(title: "ADsP (데이터분석 준전문가)"),
-        TipContent(title: "DAP (데이터아키텍처 전문가"),
-        TipContent(title: "SQLP (SQL 준전문가)")
-    ]
-    let contents3: [TipContent] = [
-        TipContent(title: "KT&G 장학재단", desc: "7월 12일 ~ 8월 1일"),
-        TipContent(title: "STX 장학재단", desc: "7월 20일 ~ 8월 5일")
-    ]
+    init(tip: Tip) {
+        self.tip = tip
+        desc = tip.desc.components(separatedBy: "'")
+        
+        for idx in 0..<desc.count {
+            res.append(Text(desc[idx]).foregroundColor(idx % 2 == 0 ? Color.black : (tip.type == 0 ? Color.carrot : Color.whip)))
+        }
+    }
     
     func getOffsetY(basedOn geo: GeometryProxy) -> CGFloat {
         // Find Y position
@@ -56,49 +52,70 @@ struct TipDetailView: View {
                 .padding([.top, .bottom], 16)
                 Spacer()
             }
-            .background(Color.carrot)
+            .background(tip.type == 0 ? Color.carrot : Color.whip)
             ScrollView {
                 VStack(spacing: 0) {
                     GeometryReader { geo in
                         HStack {
                             VStack(alignment: .leading, spacing: 8) {
-                                Text("하루를 의미있게,\n원데이 세미나")
+                                Text(tip.detailTitle)
                                     .font(.system(size: 24))
                                     .fontWeight(.semibold)
                                     .foregroundColor(Color.white)
-                                Text("오늘의 당근팁")
+                                Text("오늘의 \(tip.type == 0 ? "당근" : "채찍")팁")
                                     .font(.system(size: 14))
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.white.opacity(0.7))
                             }
                             Spacer()
-                            Image("Carrot")
+                            Image(tip.type == 0 ? "Carrot" : "Whip")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 90, height: 180)
-                                .padding(.bottom, -70)
+                                .frame(width: tip.type == 0 ? 90 : 200, height: tip.type == 0 ? 180 : 200)
+                                .padding(.bottom, tip.type == 0 ? -70 : -100)
+                                .padding(.trailing, tip.type == 0 ? 0 : -40)
                         }
                         .padding(24)
-                        .background(Color.carrot)
+                        .background(tip.type == 0 ? Color.carrot : Color.whip)
                         .offset(x: 0, y: self.getOffsetY(basedOn: geo) + 100)
                     }
                     // Need this to make sure the geometryreader has a size
                     .scaledToFill()
                     .frame(height: 140)
                     HStack {
-                        Text("규환님의 커리어를 위한\n\(self.oneDaySemina)들을 찾아왔어요")
+                        Text("\(res[0] + res[1] + res[2])")
                             .font(.system(size: 18))
                         Spacer()
                     }
-                    .padding(24)
+                    .padding(.horizontal,24)
+                    .padding(.top, 16)
+                    .padding(.bottom, 32)
                     VStack(spacing: 16) {
-                        ForEach(contents2, id: \.self) { item in
+                        ForEach(tip.content ?? [], id: \.self) { item in
                             TipLinkCard(tipContent: item)
                         }
                     }
                     .padding([.leading, .trailing], 24)
                     .padding(.bottom, 32)
                     .background(Color.white)
+                    tip.linkTitle != nil ?
+                    Button(action: {
+                        print(tip.link ?? "nil")
+                    }) {
+                        Text(tip.linkTitle!)
+                            .bold()
+                    }
+                    .buttonStyle(
+                        BigButtonStyle(
+                            fontSize: 18,
+                            fontColor: .white,
+                            backgroundColor: Color.fontColor
+                        )
+                    )
+                    .padding(.horizontal, 24)
+                    .padding(.vertical, 32)
+                    : nil
+                    
                 }
             }
         }
@@ -108,6 +125,21 @@ struct TipDetailView: View {
 
 struct TipDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        TipDetailView()
+        TipDetailView(tip:
+                        Tip(title: "지역 화폐를 만들어보세요 💸",
+                            detailTitle: "지역화폐 사용하고\n10% 아끼자",
+                            desc: "규환님이 살고 계신 경기도의 경우\n'경기지역화폐'를 사용하면\n10% 환급을 받을 수 있습니다.",
+                            type: 1,
+                            content: [
+                                TipContent(
+                                    title: "지난 달 지역화폐\n가맹점에서 사용한 돈", desc: "231,000원", type: 1
+                                ),
+                                TipContent(
+                                    title: "지난 달 지역화폐를 사용했으면\n아낄 수 있었던 돈", desc: "231,00원", type: 2
+                                )
+                            ],
+                            link: "https://google.com", linkTitle: "지역화폐 신청하러 가기"
+                           )
+        )
     }
 }

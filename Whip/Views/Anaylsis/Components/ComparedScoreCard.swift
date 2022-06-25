@@ -18,8 +18,8 @@ struct Index {
 struct ComparedScoreCard: View {
     @State var selected = 0 // 0 - 당근지수, 1 - 채찍지수
     let index: [Index] = [
-        Index(peerPercent: 0.3, myPercent: 0.8, score: 46, name: "당근지수", color: Color.carrot),
-        Index(peerPercent: 0.8, myPercent: 0.6, score: 29, name: "채찍지수", color: Color.whip)
+        Index(peerPercent: 0.36, myPercent: 0.72, score: 36, name: "당근지수", color: Color.carrot),
+        Index(peerPercent: 0.77, myPercent: 0.48, score: -29, name: "채찍지수", color: Color.whip)
     ]
     
     var body: some View {
@@ -87,11 +87,11 @@ struct ComparedScoreCard: View {
                         HStack {
                             Text("또래보다")
                                 .font(.system(size: 18))
-                            Text("\(self.index[selected].score)점")
+                            Text("\(abs(self.index[selected].score))점")
                                 .font(.system(size: 18))
                                 .fontWeight(.bold)
                                 .foregroundColor(self.index[selected].color)
-                            Text("높아요")
+                            Text("\(self.index[selected].score > 0 ? "높아요" : "낮아요")")
                                 .font(.system(size: 18))
                         }
                         Spacer().frame(height: 45)
