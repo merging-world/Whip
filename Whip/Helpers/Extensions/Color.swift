@@ -18,4 +18,6 @@ extension Color {
     static let subtitlePlaceholder = Color("subtitlePlaceholder")
     static let progressBar = Color("progressBar")
     static let blueGray = Color("blueGray")
+    static let orangeHalf = Color("orange0.5")
+    static let greenHalf = Color("greenHalf")
 }
