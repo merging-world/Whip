@@ -49,10 +49,7 @@ struct OCRView: View {
                             }
                         }
                         .sheet(isPresented: self.$isPressed) {
-                            ItemDetailView(showModal: self.$isPressed, isNew: true, viewModel: self.viewModel)
-                                .task {
-                                    
-                                }
+                            ItemDetailView(showModal: self.$isPressed, isNew: true, viewModel: self.viewModel, model: TransactionItemModel(title: "STARBUCKS 가락시장역점", kind: .pay, money: -7900))
                         }
                         Spacer()
                     }

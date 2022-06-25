@@ -31,9 +31,9 @@ struct DetailedAnaylsisView: View {
                 HStack {
                     Spacer()
                     Text("주간 소비 데이터")
-                        .bold()
                         .foregroundColor(.white)
-                        .font(.system(size: 24))
+                        .font(.system(size: 18))
+                        .fontWeight(.semibold)
                     Spacer()
                 }
             }
@@ -53,8 +53,8 @@ struct DetailedAnaylsisView: View {
                             
                             Text("지난 주 대비 -7,000원")
                                 .font(.system(size: 14))
-                                .foregroundColor(.gray)
-                                .padding(.top, 12)
+                                .foregroundColor(.darkGray)
+                                .padding(.top, 8)
                         }
                         self.barChartView
                             .padding(.top, 20)
@@ -65,6 +65,7 @@ struct DetailedAnaylsisView: View {
                     VStack(alignment: .leading, spacing: 0) {
                         Text("지금까지 \(self.donutChartMostTitle)에\n가장 많은 돈을 쓰셨군요!")
                             .font(.system(size: 18))
+                            .fontWeight(.medium)
                             .lineSpacing(2)
                         self.donutChartView
                             .padding(.top, 16)
@@ -76,6 +77,7 @@ struct DetailedAnaylsisView: View {
                         HStack {
                             Text("이규환님의 \(self.consumerText)에 맞춘 챌린지 추천")
                                 .font(.system(size: 18))
+                                .fontWeight(.medium)
                             Spacer()
                         }
                         
@@ -89,7 +91,7 @@ struct DetailedAnaylsisView: View {
                                 .bold()
                         }
                         .buttonStyle(BigButtonStyle(fontSize: 18, fontColor: .white, backgroundColor: .carrot))
-                        .padding(.top, 20)
+                        .padding(.top, 28)
                     }
                     .padding(.horizontal, 24)
                     .padding(.top, 48)
@@ -110,8 +112,10 @@ extension DetailedAnaylsisView {
                 HStack {
                     Text("(만원)")
                         .font(.system(size: 14))
+                        .foregroundColor(.darkGray)
                     Spacer()
                 }
+                .offset(x: -4, y: 12)
                 BarChartView()
                     .padding(.top, 20)
             }
@@ -132,9 +136,10 @@ extension DetailedAnaylsisView {
                 HStack {
                     Spacer()
                     Text("2022.01 ~ 현재")
-                        .font(.system(size: 14))
-                        .foregroundColor(.gray)
+                        .font(.system(size: 14, weight: .medium))
+                        .foregroundColor(.darkGray)
                 }
+                .offset(x: 12, y: -12)
                 DonutChartView(
                     values: [300000, 189000, 45000],
                     names: ["당근챌린지", "인터넷 강의", "서점"],

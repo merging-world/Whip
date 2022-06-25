@@ -10,21 +10,30 @@ import SwiftUI
 struct ItemDetailView: View {
     @Binding var showModal: Bool
     @State var isRemove = true
-    @State var selectedKind: Kind = .pay
+    @State var selectedKind: Kind = .pay {
+        didSet {
+            self.model.kind = self.selectedKind
+        }
+    }
     var isNew = false
     @ObservedObject var viewModel: CameraViewModel
+    @State var model: TransactionItemModel
+    
+    let numberFormatter = NumberFormatter()
     
     var body: some View {
         NavigationView {
             VStack {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 0) {
-                        Text("50,000원")
+                        Text(self.numberFormatter.string(for: self.model.money) ?? "0" + "원")
                             .font(.system(size: 30))
+                            .fontWeight(.medium)
                         
-                        Text("명세서 I 인식 금액 50,000원")
+                        Text("명세서 I 인식 금액 \(self.numberFormatter.string(for: self.model.money) ?? "0")원")
                             .font(.system(size: 18))
-                            .foregroundColor(.gray)
+                            .fontWeight(.medium)
+                            .foregroundColor(.darkGray)
                             .padding(.top, 12)
                     }
                     Spacer()
@@ -32,6 +41,7 @@ struct ItemDetailView: View {
                     Image(systemName: "xmark")
                         .resizable()
                         .frame(width: 24, height: 24)
+                        .foregroundColor(.fontColor)
                         .onTapGesture {
                             self.showModal = false
                         }
@@ -60,6 +70,12 @@ struct ItemDetailView: View {
             }
             .padding(.horizontal, 24)
             .navigationBarHidden(true)
+            .ignoresSafeArea(.keyboard, edges: .bottom)
+        }
+        .onAppear {
+            self.numberFormatter.numberStyle = .decimal
+            self.model.money = abs(self.model.money)
+            self.selectedKind = self.model.kind
         }
     }
 }
@@ -94,8 +110,8 @@ extension ItemDetailView {
     func kindText(_ text: String) -> some View {
         Text(text)
             .font(.system(size: 16))
-            .bold()
-            .foregroundColor(.gray)
+            .fontWeight(.semibold)
+            .foregroundColor(.darkGray)
     }
     
     @ViewBuilder
@@ -107,7 +123,20 @@ extension ItemDetailView {
                 HStack(spacing: 8) {
                     ForEach(Kind.allCases, id: \.self) { kind in
                         kind.buttonView
-                            .foregroundColor(kind == self.selectedKind ? kind.color : .modernGray)
+                            .background(
+                                Group {
+                                    if kind == self.selectedKind {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill(Color.carrot)
+                                    } else {
+                                        RoundedRectangle(cornerRadius: 10)
+                                        .stroke(lineWidth: 1)
+                                        .foregroundColor(.modernGray)
+                                    }
+                                }
+                            )
+                            .foregroundColor(kind == self.selectedKind ? .white : .modernGray)
+                            .contentShape(Rectangle())
                             .onTapGesture {
                                 self.selectedKind = kind
                             }
@@ -124,26 +153,15 @@ extension ItemDetailView {
     }
     
     @ViewBuilder
-    var categoryLine: some View {
-        VStack {
-            HStack(spacing: 0) {
-                self.kindText("카테고리")
-                Spacer()
-                
-                self.lineNextIcon
-            }
-            CustomDivider(height: 1, horizontalPadding: 24)
-                .padding(.vertical, 12)
-        }
-    }
-    
-    @ViewBuilder
     var tradePlaceLine: some View {
         VStack {
             HStack(spacing: 0) {
                 self.kindText("거래처")
                 
-                Text("(주)스타벅스커피 코리아")
+                Text(self.model.title)
+                    .font(.system(size: 16))
+                    .fontWeight(.semibold)
+                    .foregroundColor(.fontColor)
                     .padding(.leading, 32)
                 Spacer()
                 
@@ -160,7 +178,9 @@ extension ItemDetailView {
             HStack(spacing: 0) {
                 self.kindText("결제수단")
                 
-                Text("부자되세요 더 마일리지카드(체크)")
+                TextField("", text: .constant("부자되세요 더 마일리지카드(체크)"))
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundColor(.fontColor)
                     .padding(.leading, 20)
                 Spacer()
                 
@@ -178,6 +198,9 @@ extension ItemDetailView {
                 self.kindText("날짜")
                 
                 Text("2022년 6월 24일 오후 3:13")
+                    .font(.system(size: 16))
+                    .fontWeight(.semibold)
+                    .foregroundColor(.fontColor)
                     .padding(.leading, 48)
                 Spacer()
                 
@@ -195,6 +218,8 @@ extension ItemDetailView {
                 self.kindText("메모")
                 
                 Text("메모 및 #태그를 입력해주세요")
+                    .font(.system(size: 16))
+                    .fontWeight(.semibold)
                     .foregroundColor(.modernGray)
                     .padding(.leading, 48)
                 Spacer()
@@ -212,12 +237,14 @@ extension ItemDetailView {
             VStack(alignment: .leading, spacing: 0) {
                 Text("예산에서 제외")
                     .font(.system(size: 16))
-                    .foregroundColor(.gray)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.darkGray)
                 
                 if self.isRemove {
                     Text("이 내역을 예산에 포함하지 않습니다")
                         .font(.system(size: 12))
-                        .foregroundColor(.carrot)
+                        .fontWeight(.medium)
+                        .foregroundColor(.blueGray)
                         .lineLimit(1)
                         .padding(.top, 4)
                 }
@@ -233,7 +260,6 @@ extension ItemDetailView {
 enum Kind: String, CaseIterable {
     case pay = "지출"
     case income = "수입"
-    case transfer = "이체"
     
     var color: Color {
         switch self {
@@ -241,8 +267,15 @@ enum Kind: String, CaseIterable {
             return .whip
         case .income:
             return .carrot
-        case .transfer:
-            return .carrot
+        }
+    }
+    
+    var halfColor: Color {
+        switch self {
+        case .pay:
+            return .greenHalf
+        case .income:
+            return .orangeHalf
         }
     }
     
@@ -250,12 +283,9 @@ enum Kind: String, CaseIterable {
     var buttonView: some View {
         Text(self.rawValue)
             .font(.system(size: 16))
-            .padding(.horizontal, 16)
+            .bold()
+            .padding(.horizontal, 36)
             .padding(.vertical, 8)
             .lineLimit(1)
-            .background(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(lineWidth: 1)
-            )
     }
 }

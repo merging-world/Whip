@@ -25,7 +25,6 @@
 		B7570243286453BC0073E49F /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7570242286453BC0073E49F /* View.swift */; };
 		B78C2D1128659801006CCAD0 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = B78C2D1028659801006CCAD0 /* FSCalendar */; };
 		B78C2D1328659A94006CCAD0 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D1228659A94006CCAD0 /* CalendarView.swift */; };
-		B78C2D152865DE62006CCAD0 /* MonthlyTransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D142865DE62006CCAD0 /* MonthlyTransactionItem.swift */; };
 		B78C2D172865E1DF006CCAD0 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D162865E1DF006CCAD0 /* DailyView.swift */; };
 		B78C2D192865ECBA006CCAD0 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D182865ECBA006CCAD0 /* ItemDetailView.swift */; };
 		B78C2D1B2865F27E006CCAD0 /* SegementedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D1A2865F27E006CCAD0 /* SegementedView.swift */; };
@@ -40,6 +39,8 @@
 		B78C2D3B28669F5D006CCAD0 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D3A28669F5D006CCAD0 /* CameraViewModel.swift */; };
 		B78C2D3D2866DC97006CCAD0 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D3C2866DC97006CCAD0 /* ProgressView.swift */; };
 		B7DA6A4A28671927005ABC09 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B7DA6A4928671927005ABC09 /* Lottie */; };
+		B7DA6A4D286757C8005ABC09 /* TransactionItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DA6A4C286757C8005ABC09 /* TransactionItemModel.swift */; };
+		B7DA6A4F286774F7005ABC09 /* OCRResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DA6A4E286774F7005ABC09 /* OCRResult.swift */; };
 		F94E9E8E28667BBB007A4BEE /* TipLinkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94E9E8D28667BBB007A4BEE /* TipLinkCard.swift */; };
 		F94E9E9128667C42007A4BEE /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94E9E9028667C42007A4BEE /* Tip.swift */; };
 		F94E9E9328668B56007A4BEE /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94E9E9228668B56007A4BEE /* NavigationController.swift */; };
@@ -76,7 +77,6 @@
 		B75702402864534C0073E49F /* TransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItem.swift; sourceTree = "<group>"; };
 		B7570242286453BC0073E49F /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		B78C2D1228659A94006CCAD0 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		B78C2D142865DE62006CCAD0 /* MonthlyTransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyTransactionItem.swift; sourceTree = "<group>"; };
 		B78C2D162865E1DF006CCAD0 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
 		B78C2D182865ECBA006CCAD0 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
 		B78C2D1A2865F27E006CCAD0 /* SegementedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegementedView.swift; sourceTree = "<group>"; };
@@ -90,6 +90,8 @@
 		B78C2D3828669F2E006CCAD0 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		B78C2D3A28669F5D006CCAD0 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		B78C2D3C2866DC97006CCAD0 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		B7DA6A4C286757C8005ABC09 /* TransactionItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemModel.swift; sourceTree = "<group>"; };
+		B7DA6A4E286774F7005ABC09 /* OCRResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRResult.swift; sourceTree = "<group>"; };
 		EBFECBFAB9F902EDAA2315D7 /* Pods_Whip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Whip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94E9E8D28667BBB007A4BEE /* TipLinkCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipLinkCard.swift; sourceTree = "<group>"; };
 		F94E9E9028667C42007A4BEE /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
@@ -290,9 +292,8 @@
 		B757023F2864533C0073E49F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				B75702402864534C0073E49F /* TransactionItem.swift */,
+				B7DA6A4B286757B0005ABC09 /* TransactionItem */,
 				B78C2D1228659A94006CCAD0 /* CalendarView.swift */,
-				B78C2D142865DE62006CCAD0 /* MonthlyTransactionItem.swift */,
 				B78C2D162865E1DF006CCAD0 /* DailyView.swift */,
 				B78C2D182865ECBA006CCAD0 /* ItemDetailView.swift */,
 				B78C2D1A2865F27E006CCAD0 /* SegementedView.swift */,
@@ -343,8 +344,18 @@
 				B78C2D3628669BDF006CCAD0 /* CameraPreviewView.swift */,
 				B78C2D3828669F2E006CCAD0 /* Camera.swift */,
 				B78C2D3A28669F5D006CCAD0 /* CameraViewModel.swift */,
+				B7DA6A4E286774F7005ABC09 /* OCRResult.swift */,
 			);
 			path = OCR;
+			sourceTree = "<group>";
+		};
+		B7DA6A4B286757B0005ABC09 /* TransactionItem */ = {
+			isa = PBXGroup;
+			children = (
+				B75702402864534C0073E49F /* TransactionItem.swift */,
+				B7DA6A4C286757C8005ABC09 /* TransactionItemModel.swift */,
+			);
+			path = TransactionItem;
 			sourceTree = "<group>";
 		};
 		F94E9E8F28667C32007A4BEE /* Model */ = {
@@ -545,11 +556,13 @@
 				B7570215286346860073E49F /* WhipApp.swift in Sources */,
 				F94E9E9328668B56007A4BEE /* NavigationController.swift in Sources */,
 				F94E9E9F2866D1A7007A4BEE /* ChallengeSuccessView.swift in Sources */,
+				B7DA6A4F286774F7005ABC09 /* OCRResult.swift in Sources */,
 				F94E9E98286697A1007A4BEE /* ChallengeItem.swift in Sources */,
 				B78C2D172865E1DF006CCAD0 /* DailyView.swift in Sources */,
 				B78C2D27286677C2006CCAD0 /* DonutChartView.swift in Sources */,
 				B78C2D2428667545006CCAD0 /* DetailedAnaylsisView.swift in Sources */,
 				F94E9E9D2866CAB7007A4BEE /* Challenge.swift in Sources */,
+				B7DA6A4D286757C8005ABC09 /* TransactionItemModel.swift in Sources */,
 				B78C2D1328659A94006CCAD0 /* CalendarView.swift in Sources */,
 				B757023E286392BB0073E49F /* CustomDivider.swift in Sources */,
 				F95AC1302865DD9100F06385 /* TipDetailView.swift in Sources */,
@@ -561,7 +574,6 @@
 				B757022F2863653E0073E49F /* BaseViewTabBar.swift in Sources */,
 				B757023228636BBD0073E49F /* Const.swift in Sources */,
 				B757023A28638C570073E49F /* ChallengeView.swift in Sources */,
-				B78C2D152865DE62006CCAD0 /* MonthlyTransactionItem.swift in Sources */,
 				B78C2D3D2866DC97006CCAD0 /* ProgressView.swift in Sources */,
 				B78C2D1E28666F22006CCAD0 /* BigButtonStyle.swift in Sources */,
 				B757023728638B5A0073E49F /* Color.swift in Sources */,

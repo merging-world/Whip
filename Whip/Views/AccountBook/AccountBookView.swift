@@ -9,10 +9,17 @@ import SwiftUI
 
 struct AccountBookView: View {
     @State private var mode: AccountBookViewMode = .daily
-    @State var records = ["Digi", "Steve", "Hwana", "Jessica", "Bean"]
+    @State var records = [
+        TransactionItemModel(title: "모네 카페", kind: .pay, money: -4000),
+        TransactionItemModel(title: "(주)PoApper", kind: .income, money: 2000000),
+        TransactionItemModel(title: "이규환", kind: .pay, money: -7000),
+        TransactionItemModel(title: "심명진", kind: .income, money: 8000),
+        TransactionItemModel(title: "박건호", kind: .pay, money: -7000),
+    ]
     @State var date = Date()
     @State var showModal = false
     @StateObject var viewModel = CameraViewModel()
+    @State var selectedIndex = 0
     
     var body: some View {
         NavigationView {
@@ -34,39 +41,24 @@ struct AccountBookView: View {
                             .padding(.top, self.mode == .daily ? 24 : 0)
                         
                         
-                        ForEach(self.records, id: \.self) {
-                            if self.mode == .weekly || self.mode == .daily {
-                                TransactionItem(
-                                    title: $0,
-                                    description: self.date.formatted(),
-                                    price: 1000 * $0.count
-                                )
+                        ForEach(0..<self.records.count, id: \.self) { index in
+                                TransactionItem(model: self.records[index])
                                 .padding(.vertical, 12)
+                                .contentShape(Rectangle())
                                 .onTapGesture {
+                                    self.selectedIndex = index
                                     self.showModal = true
                                 }
-                                
-                            } else {
-                                VStack(spacing: 0) {
-                                    MonthlyTransactionItem()
-                                        .onTapGesture {
-                                            self.showModal = true
-                                        }
-                                    
-                                    CustomDivider(height: 1, horizontalPadding: 24)
-                                        .padding(.vertical, 4)
-                                }
-                            }
                         }
                         .padding(.horizontal, 24)
                         .offset(y: self.mode == .weekly ? -230 : 0)
                         .padding(.top, 4)
                         .sheet(isPresented: self.$showModal) {
-                            ItemDetailView(showModal: self.$showModal, viewModel: self.viewModel)
+                            ItemDetailView(showModal: self.$showModal, viewModel: self.viewModel, model: self.records[self.selectedIndex])
                         }
-                        
                     }
                     .padding(.horizontal, 24)
+                    .padding(.bottom, self.mode == .weekly ? 0 : 40)
                 }
                 
                 VStack {
@@ -91,7 +83,7 @@ extension AccountBookView {
                 }
                 .font(.system(size: 20))
                 
-                Text("12,500원")
+                Text(self.mode.totalMoney)
                     .font(.system(size: 32))
                     .bold()
                     .foregroundColor(.fontColor)
@@ -145,6 +137,17 @@ enum AccountBookViewMode: String, CaseIterable {
                     width: UIScreen.main.bounds.width - 48,
                     height: UIScreen.main.bounds.height / 2.5
                 )
+        }
+    }
+    
+    var totalMoney: String {
+        switch self {
+        case .daily:
+            return "12,500원"
+        case .weekly:
+            return "83,400원"
+        case .monthly:
+            return "324,000원"
         }
     }
     

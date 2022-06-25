@@ -16,8 +16,9 @@ struct ProgressView: View {
             AnyView(
                 VStack(spacing: 16) {
                     HStack {
-                        Text("6월 24일에는 평소보다\n\(self.moneyCount) 적게 사용했어요")
+                        Text("6월 26일에는 평소보다\n\(self.moneyCount) 적게 사용했어요")
                             .font(.system(size: 16))
+                            .fontWeight(.medium)
                             .lineSpacing(4)
                         Spacer()
                     }

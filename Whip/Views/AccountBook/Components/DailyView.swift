@@ -15,11 +15,12 @@ struct DailyView: View {
             HStack(spacing: 0) {
                 Text("전체 내역")
                     .font(.system(size: 18))
-                    .bold()
+                    .fontWeight(.semibold)
                 
                 Spacer()
-                Text("+ 내역 추가")
+                Text("+ 영수증으로 내역 추가")
                     .font(.system(size: 16))
+                    .fontWeight(.semibold)
                     .onTapGesture {
                         self.isFullScreenOver = true
                     }
@@ -32,8 +33,9 @@ struct DailyView: View {
             .padding(.top, 16)
             
             HStack(spacing: 0) {
-                Text("28일 월요일")
+                Text("26일 일요일")
                     .font(.system(size: 16))
+                    .fontWeight(.semibold)
                 Spacer()
             }
             .font(.system(size: 16))

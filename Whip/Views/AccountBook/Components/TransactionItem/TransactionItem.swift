@@ -8,38 +8,39 @@
 import SwiftUI
 
 struct TransactionItem: View {
-    let title: String
-    let description: String
-    let price: Int
+    var model: TransactionItemModel
     let formatter = NumberFormatter()
+    let moneyText: String
     
-    init(title: String, description: String, price: Int) {
-        self.title = title
-        self.description = description
-        self.price = price
-        formatter.numberStyle = .decimal
+    init(model: TransactionItemModel) {
+        self.model = model
+        self.formatter.numberStyle = .decimal
+        self.moneyText = (model.money > 0 ? "+" : "")  + formatter.string(for: self.model.money)!
     }
     
     var body: some View {
         HStack(spacing: 12) {
             ZStack {
-                // TODO: 아이콘 변경하기
                 Image(systemName: "arrow.left.arrow.right")
-                    .foregroundColor(.whip)
+                    .foregroundColor(self.model.kind.color)
             }
             .frame(width: 42, height: 42, alignment: .center)
-            .background(Color.greenHalf)
+            .background(self.model.kind.halfColor)
             .cornerRadius(21)
+            
             VStack(alignment: .leading, spacing: 6) {
-                Text(title)
+                Text(self.model.title)
                     .font(.system(size: 16, weight: .semibold))
-                Text(description)
+                Text(self.model.kind.rawValue)
                     .font(.system(size: 12))
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(Color.darkGray)
+                    .fontWeight(.medium)
             }
             Spacer()
-            Text("\(formatter.string(for: price)!)원")
+            
+            Text("\(self.moneyText)원")
                 .font(.system(size: 16, weight: .semibold))
+                .foregroundColor(self.model.kind.color)
             
         }
     }
@@ -47,6 +48,6 @@ struct TransactionItem: View {
 
 struct TransactionItem_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionItem(title: "모네 카페", description: "내계좌이체 | 보통예금", price: -4000)
+        TransactionItem(model: TransactionItemModel(title: "", kind: .pay, money: 0))
     }
 }

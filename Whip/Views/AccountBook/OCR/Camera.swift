@@ -117,6 +117,22 @@ extension Camera {
             }
             //결과값 출력
             self.resultText = result.text
+            
+            for block in result.blocks {
+                let blockText = block.text
+                    print("block: \(blockText)")
+                            
+                    for line in block.lines {
+                        let lineText = line.text
+                        print("line: \(lineText)")
+                                
+                            for element in line.elements {
+                                let elementText = element.text
+                                print("element: \(elementText)")
+                            }
+                       }
+            }
+            
         }
     }
     func imageOrientation(
