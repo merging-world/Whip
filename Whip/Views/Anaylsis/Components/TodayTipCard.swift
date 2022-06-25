@@ -28,7 +28,7 @@ struct TodayTipCard: View {
             desc: "규환님의 커리어를 위한\n'원데이 세미나'들을 찾아왔어요.",
             type: 0,
             content: [
-                TipContent(title: "스스로 성장하는\n분석가 커리어 만들기", image: "sample1", type: 0),
+                TipContent(title: "스스로 성장하는\n분석가 커리어 만들기", image: "sample1", type: 0, link: "https://www.datarian.io/webinar"),
                 TipContent(title: "SQL로 시작하는\n데이터 분석", image: "sample2", type: 0)
             ]
         ),

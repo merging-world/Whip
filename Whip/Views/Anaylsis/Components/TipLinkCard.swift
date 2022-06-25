@@ -24,12 +24,15 @@ struct TipLinkCard: View {
                                 .foregroundColor(Color.blueGray): nil
                         }
                         Spacer()
-                        tipContent.type == 0 ? Text("바로가기")
-                            .padding([.top, .bottom], 8)
-                            .padding([.leading, .trailing], 24)
-                            .foregroundColor(Color.white)
-                            .background(Color.fontColor)
-                            .cornerRadius(10) : nil
+                        tipContent.type == 0 ?
+                        Link(destination: URL(string: tipContent.link ?? "https://www.apple.com")!) {
+                                Text("바로가기")
+                                    .padding([.top, .bottom], 8)
+                                    .padding([.leading, .trailing], 24)
+                                    .foregroundColor(Color.white)
+                                    .background(Color.fontColor)
+                                    .cornerRadius(10)
+                            } : nil
                         tipContent.type != 0 ? Text(tipContent.desc!)
                             .font(.system(size: 20))
                             .fontWeight(.semibold)
