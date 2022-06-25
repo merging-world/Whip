@@ -67,7 +67,7 @@ enum BaseViewMode {
     var tabBarLabelText: String {
         switch self {
         case .analysis:
-            return "분석"
+            return "홈"
         case .accountBook:
             return "가계부"
         case .challenge:

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct MyProfileView: View {
     let remainingBudgetPercent: Float = 0.7
-    let carrotIndexPercent: Float = 0.6
-    let whipIndexPercent: Float = 0.8
+    let carrotIndexPercent: Float = 0.72
+    let whipIndexPercent: Float = 0.48
     
     let tags: [String] = ["데이터", "갓생살기", "재테크", "자기계발", "개발자", "코딩"]
     
@@ -85,7 +85,7 @@ struct MyProfileView: View {
                                             .fill(Color.white)
                                             .frame(width: 8, height: 8)
                                             .offset(x: geo.size.width * CGFloat(self.carrotIndexPercent) - 9)
-                                        Text("60점")
+                                        Text("72점")
                                             .font(.system(size: 11))
                                             .fontWeight(.bold)
                                             .foregroundColor(Color.carrot)
@@ -111,7 +111,7 @@ struct MyProfileView: View {
                                             .fill(Color.white)
                                             .frame(width: 8, height: 8)
                                             .offset(x: geo.size.width * CGFloat(self.whipIndexPercent) - 9)
-                                        Text("80점")
+                                        Text("48점")
                                             .font(.system(size: 11))
                                             .fontWeight(.bold)
                                             .foregroundColor(Color.whip)

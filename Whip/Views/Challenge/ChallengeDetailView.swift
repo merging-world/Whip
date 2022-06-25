@@ -18,21 +18,6 @@ struct ChallengeDetailView: View {
     
     @State var goSuccessView = false
     
-    let contents: [TipContent] = [
-        TipContent(title: "스스로 성장하는\n분석가 커리어 만들기", image: "sample1"),
-        TipContent(title: "SQL로 시작하는\n데이터 분석", image: "sample2")
-    ]
-    let contents2: [TipContent] = [
-        TipContent(title: "빅데이터 분석기사"),
-        TipContent(title: "ADsP (데이터분석 준전문가)"),
-        TipContent(title: "DAP (데이터아키텍처 전문가"),
-        TipContent(title: "SQLP (SQL 준전문가)")
-    ]
-    let contents3: [TipContent] = [
-        TipContent(title: "KT&G 장학재단", desc: "7월 12일 ~ 8월 1일"),
-        TipContent(title: "STX 장학재단", desc: "7월 20일 ~ 8월 5일")
-    ]
-    
     func getOffsetY(basedOn geo: GeometryProxy) -> CGFloat {
         // Find Y position
         let minY = geo.frame(in: .global).minY
