@@ -30,7 +30,7 @@ struct TipLinkCard: View {
                                     .padding([.top, .bottom], 8)
                                     .padding([.leading, .trailing], 24)
                                     .foregroundColor(Color.white)
-                                    .background(Color.fontColor)
+                                    .background(Color.darkButton)
                                     .cornerRadius(10)
                             } : nil
                         tipContent.type != 0 ? Text(tipContent.desc!)

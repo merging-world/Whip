@@ -40,7 +40,7 @@ struct NewChallengeItem: View {
                         .frame(width: 95, height: 95)
                 }
             ),
-            color: self.selected ? .carrot : .white
+            color: self.selected ? .carrot : Color.card
         )
     }
 }

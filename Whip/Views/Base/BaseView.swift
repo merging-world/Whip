@@ -24,7 +24,7 @@ struct BaseView: View {
                     )
                     .padding(.top, 16)
                     .padding(.bottom, 4)
-                    .background(Color.white)
+                    .background(Color.card)
                     .shadow(color: Color.black.opacity(0.08), radius: 12, x: 0, y: 0)
             }
             .edgesIgnoringSafeArea(.top)

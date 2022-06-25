@@ -15,18 +15,18 @@ struct Card: View {
     
     init(_ child: AnyView, color: Color?) {
         self.child = child
-        self.color = color ?? Color.white
+        self.color = color ?? Color.card
     }
 
     init(_ child: AnyView, color: Color?, padding: Int) {
         self.child = child
-        self.color = color ?? Color.white
+        self.color = color ?? Color.card
         self.padding = padding
     }
     
     init(_ child: AnyView, color: Color?, padding: Int, hasShadow: Bool) {
         self.child = child
-        self.color = color ?? Color.white
+        self.color = color ?? Color.card
         self.padding = padding
         self.hasShadow = hasShadow
     }

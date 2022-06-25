@@ -19,7 +19,7 @@ struct TipDetailView: View {
         desc = tip.desc.components(separatedBy: "'")
         
         for idx in 0..<desc.count {
-            res.append(Text(desc[idx]).foregroundColor(idx % 2 == 0 ? Color.black : (tip.type == 0 ? Color.carrot : Color.whip)))
+            res.append(Text(desc[idx]).foregroundColor(idx % 2 == 0 ? Color.fontColor : (tip.type == 0 ? Color.carrot : Color.whip)))
         }
     }
     
@@ -71,7 +71,7 @@ struct TipDetailView: View {
                             Image(tip.type == 0 ? "Carrot" : "Whip")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: tip.type == 0 ? 90 : 200, height: tip.type == 0 ? 180 : 200)
+                                .frame(width: tip.type == 0 ? 90 : 180, height: tip.type == 0 ? 180 : 200)
                                 .padding(.bottom, tip.type == 0 ? -70 : -100)
                                 .padding(.trailing, tip.type == 0 ? 0 : -40)
                         }
@@ -97,7 +97,6 @@ struct TipDetailView: View {
                     }
                     .padding([.leading, .trailing], 24)
                     .padding(.bottom, 32)
-                    .background(Color.white)
                     tip.linkTitle != nil ?
                     Button(action: {
                         print(tip.link ?? "nil")
@@ -109,7 +108,7 @@ struct TipDetailView: View {
                         BigButtonStyle(
                             fontSize: 18,
                             fontColor: .white,
-                            backgroundColor: Color.fontColor
+                            backgroundColor: Color.darkButton
                         )
                     )
                     .padding(.horizontal, 24)
