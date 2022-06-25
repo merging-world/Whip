@@ -73,7 +73,7 @@ struct SegementedView: View {
                 )
                 .background(
                     Capsule()
-                        .fill(.white)
+                        .fill(Color.card)
                         .shadow(
                             color: .black.opacity(0.1),
                             radius: 14,

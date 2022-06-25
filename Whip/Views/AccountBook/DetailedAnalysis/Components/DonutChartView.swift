@@ -93,7 +93,7 @@ struct DonutChartView: View {
                 )
                 .padding(.top, 25)
             }
-            .foregroundColor(Color.white)
+            .foregroundColor(Color.card)
         }
     }
 }

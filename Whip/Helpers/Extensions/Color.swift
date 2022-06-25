@@ -23,4 +23,6 @@ extension Color {
     static let darkGray = Color("darkGray")
     static let lightGray = Color("lightGray")
     static let deepGray = Color("deepGray")
+    static let card = Color("card")
+    static let darkButton = Color("darkButton")
 }

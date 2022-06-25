@@ -36,7 +36,7 @@ struct ComparedScoreCard: View {
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text("당근지수")
                                         .font(.system(size: 18))
-                                        .foregroundColor(self.selected == 0 ? Color.white : Color.black)
+                                        .foregroundColor(self.selected == 0 ? Color.white : Color.fontColor)
                                     Text("72점")
                                         .font(.system(size: 28))
                                         .fontWeight(.bold)
@@ -64,7 +64,7 @@ struct ComparedScoreCard: View {
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text("채찍지수")
                                         .font(.system(size: 18))
-                                        .foregroundColor(self.selected == 1 ? Color.white : Color.black)
+                                        .foregroundColor(self.selected == 1 ? Color.white : Color.fontColor)
                                     Text("48점")
                                         .font(.system(size: 28))
                                         .fontWeight(.bold)

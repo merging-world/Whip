@@ -84,7 +84,7 @@ struct TodayTipCard: View {
         NavigationLink(destination: TipDetailView(tip: item)) {
             HStack {
                 Text(item.title)
-                    .foregroundColor(Color.black)
+                    .foregroundColor(Color.fontColor)
                 Spacer()
                 Image(systemName: "chevron.forward")
                     .foregroundColor(Color.carrot)

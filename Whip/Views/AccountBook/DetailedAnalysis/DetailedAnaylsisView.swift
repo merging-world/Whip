@@ -123,7 +123,7 @@ extension DetailedAnaylsisView {
             .padding(.vertical, 40)
             Spacer()
         }
-        .background(.white)
+        .background(Color.card)
         .cornerRadius(15)
         .shadow(color: Color.black.opacity(0.08), radius: 26, x: 0, y: 0)
     }
@@ -150,7 +150,7 @@ extension DetailedAnaylsisView {
             .padding(.vertical, 40)
             Spacer()
         }
-        .background(.white)
+        .background(Color.card)
         .cornerRadius(15)
         .shadow(color: Color.black.opacity(0.08), radius: 26, x: 0, y: 0)
     }
