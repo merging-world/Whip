@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "icon_edu_bag_01 [Converted].png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "icon_edu_bag_01 [Converted]@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "icon_edu_bag_01 [Converted]@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

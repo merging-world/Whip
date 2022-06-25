@@ -7,21 +7,11 @@
 
 import SwiftUI
 
-struct Challenge: Hashable {
-    let title: String
-    let desc: String
-    let content: String
-    let percent: Float
-    let color: Color
-    let image: String
-}
-
 struct ChallengeCard: View {
     let challenges: [Challenge] = [
         Challenge(title: "포토샵 강의 신청", desc: "30일 챌린지", content: "12강", percent: 0.8, color: Color.carrot, image: "Trophy"),
         Challenge(title: "하루에 천원 저축하기", desc: "30일 챌린지", content: "15,000원", percent: 0.3, color: Color.whip, image: "Piggy"),
         Challenge(title: "일주일에 책 한권", desc: "30일 챌린지", content: "10권", percent: 0.1, color: Color.carrot, image: "Trophy")
-    
     ]
     
     var body: some View {
