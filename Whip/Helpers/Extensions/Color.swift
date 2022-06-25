@@ -16,6 +16,7 @@ extension Color {
     static let weekdayColor = Color("weekdayColor")
     static let calendarText = Color("calendarText")
     static let subtitlePlaceholder = Color("subtitlePlaceholder")
-    static let progressBar = Color("progressBar")
+    static let modernGray = Color("modernGray")
     static let blueGray = Color("blueGray")
+    static let darkGray = Color("darkGray")
 }

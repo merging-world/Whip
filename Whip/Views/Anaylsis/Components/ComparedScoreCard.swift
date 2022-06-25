@@ -98,7 +98,7 @@ struct ComparedScoreCard: View {
                         GeometryReader { geo in
                             ZStack(alignment: .leading) {
                                 RoundedRectangle(cornerRadius: 5)
-                                    .fill(Color.progressBar)
+                                    .fill(Color.modernGray)
                                     .frame(width: geo.size.width, height: 10)
                                 RoundedRectangle(cornerRadius: 5)
                                     .fill(self.index[selected].color)
