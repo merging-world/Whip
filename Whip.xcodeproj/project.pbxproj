@@ -34,6 +34,10 @@
 		B78C2D2A286678E1006CCAD0 /* SwiftPieChart in Frameworks */ = {isa = PBXBuildFile; productRef = B78C2D29286678E1006CCAD0 /* SwiftPieChart */; };
 		B78C2D2F28667C18006CCAD0 /* PieSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D2E28667C18006CCAD0 /* PieSlice.swift */; };
 		B78C2D3228668686006CCAD0 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D3128668686006CCAD0 /* BarChartView.swift */; };
+		B78C2D3528669B79006CCAD0 /* OCRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D3428669B79006CCAD0 /* OCRView.swift */; };
+		B78C2D3728669BDF006CCAD0 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D3628669BDF006CCAD0 /* CameraPreviewView.swift */; };
+		B78C2D3928669F2E006CCAD0 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D3828669F2E006CCAD0 /* Camera.swift */; };
+		B78C2D3B28669F5D006CCAD0 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D3A28669F5D006CCAD0 /* CameraViewModel.swift */; };
 		F94E9E8E28667BBB007A4BEE /* TipLinkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94E9E8D28667BBB007A4BEE /* TipLinkCard.swift */; };
 		F94E9E9128667C42007A4BEE /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94E9E9028667C42007A4BEE /* Tip.swift */; };
 		F94E9E9328668B56007A4BEE /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94E9E9228668B56007A4BEE /* NavigationController.swift */; };
@@ -72,6 +76,10 @@
 		B78C2D26286677C2006CCAD0 /* DonutChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutChartView.swift; sourceTree = "<group>"; };
 		B78C2D2E28667C18006CCAD0 /* PieSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSlice.swift; sourceTree = "<group>"; };
 		B78C2D3128668686006CCAD0 /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
+		B78C2D3428669B79006CCAD0 /* OCRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRView.swift; sourceTree = "<group>"; };
+		B78C2D3628669BDF006CCAD0 /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
+		B78C2D3828669F2E006CCAD0 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		B78C2D3A28669F5D006CCAD0 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		F94E9E8D28667BBB007A4BEE /* TipLinkCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipLinkCard.swift; sourceTree = "<group>"; };
 		F94E9E9028667C42007A4BEE /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		F94E9E9228668B56007A4BEE /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -146,6 +154,7 @@
 		B7570223286361C30073E49F /* AccountBook */ = {
 			isa = PBXGroup;
 			children = (
+				B78C2D3328669B6B006CCAD0 /* OCR */,
 				B78C2D2228667524006CCAD0 /* DetailedAnalysis */,
 				B757023F2864533C0073E49F /* Components */,
 				B7570227286362AB0073E49F /* AccountBookView.swift */,
@@ -274,10 +283,29 @@
 				B78C2D3028668655006CCAD0 /* BarChart */,
 				B78C2D26286677C2006CCAD0 /* DonutChartView.swift */,
 				B78C2D2E28667C18006CCAD0 /* PieSlice.swift */,
-            );
-            path = Components;
-            sourceTree = "<group>";
-        };
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B78C2D3028668655006CCAD0 /* BarChart */ = {
+			isa = PBXGroup;
+			children = (
+				B78C2D3128668686006CCAD0 /* BarChartView.swift */,
+			);
+			path = BarChart;
+			sourceTree = "<group>";
+		};
+		B78C2D3328669B6B006CCAD0 /* OCR */ = {
+			isa = PBXGroup;
+			children = (
+				B78C2D3428669B79006CCAD0 /* OCRView.swift */,
+				B78C2D3628669BDF006CCAD0 /* CameraPreviewView.swift */,
+				B78C2D3828669F2E006CCAD0 /* Camera.swift */,
+				B78C2D3A28669F5D006CCAD0 /* CameraViewModel.swift */,
+			);
+			path = OCR;
+			sourceTree = "<group>";
+		};
 		F94E9E8F28667C32007A4BEE /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,14 +320,6 @@
 				F94E9E97286697A1007A4BEE /* ChallengeItem.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		B78C2D3028668655006CCAD0 /* BarChart */ = {
-			isa = PBXGroup;
-			children = (
-				B78C2D3128668686006CCAD0 /* BarChartView.swift */,
-			);
-			path = BarChart;
 			sourceTree = "<group>";
 		};
 		F95AC12828659AC300F06385 /* Components */ = {
@@ -396,10 +416,12 @@
 				F94E9E8E28667BBB007A4BEE /* TipLinkCard.swift in Sources */,
 				B757023428636BD60073E49F /* Views.swift in Sources */,
 				F95AC12A28659B4200F06385 /* ComparedScoreCard.swift in Sources */,
+				B78C2D3B28669F5D006CCAD0 /* CameraViewModel.swift in Sources */,
 				B78C2D1B2865F27E006CCAD0 /* SegementedView.swift in Sources */,
 				B75702412864534C0073E49F /* TransactionItem.swift in Sources */,
 				B757022A286362B70073E49F /* MyProfileView.swift in Sources */,
 				F94E9E9128667C42007A4BEE /* Tip.swift in Sources */,
+				B78C2D3528669B79006CCAD0 /* OCRView.swift in Sources */,
 				B7570217286346860073E49F /* BaseView.swift in Sources */,
 				B7570228286362AB0073E49F /* AccountBookView.swift in Sources */,
 				F95AC12E2865B3C800F06385 /* TodayTipCard.swift in Sources */,
@@ -414,7 +436,9 @@
 				B78C2D1328659A94006CCAD0 /* CalendarView.swift in Sources */,
 				B757023E286392BB0073E49F /* CustomDivider.swift in Sources */,
 				F95AC1302865DD9100F06385 /* TipDetailView.swift in Sources */,
+				B78C2D3728669BDF006CCAD0 /* CameraPreviewView.swift in Sources */,
 				B78C2D192865ECBA006CCAD0 /* ItemDetailView.swift in Sources */,
+				B78C2D3928669F2E006CCAD0 /* Camera.swift in Sources */,
 				F95AC1272865987500F06385 /* Card.swift in Sources */,
 				F95AC12C2865AA3F00F06385 /* ChallengeCard.swift in Sources */,
 				B757022F2863653E0073E49F /* BaseViewTabBar.swift in Sources */,
@@ -554,6 +578,8 @@
 				DEVELOPMENT_TEAM = 6VYPR8MZ57;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라의 접근 권한을 허용해주세요";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "갤러리의 접근 권한을 허용해주세요";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -583,6 +609,8 @@
 				DEVELOPMENT_TEAM = 6VYPR8MZ57;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라의 접근 권한을 허용해주세요";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "갤러리의 접근 권한을 허용해주세요";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

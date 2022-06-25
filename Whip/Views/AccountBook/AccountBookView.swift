@@ -105,7 +105,8 @@ extension AccountBookView {
             Spacer()
             
             NavigationLink(destination: {
-                DetailedAnaylsisView()
+//                DetailedAnaylsisView()
+                OCRView()
             }) {
                 Text("분석")
                     .font(.system(size: 16))
