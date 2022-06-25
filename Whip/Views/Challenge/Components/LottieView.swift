@@ -5,9 +5,9 @@
 //  Created by 박원빈 on 2022/06/25.
 //
 
-import Lottie
 import SwiftUI
 import UIKit
+import Lottie
  
 struct LottieView: UIViewRepresentable {
     

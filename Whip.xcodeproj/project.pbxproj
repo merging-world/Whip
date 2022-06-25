@@ -39,6 +39,7 @@
 		B78C2D3928669F2E006CCAD0 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D3828669F2E006CCAD0 /* Camera.swift */; };
 		B78C2D3B28669F5D006CCAD0 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D3A28669F5D006CCAD0 /* CameraViewModel.swift */; };
 		B78C2D3D2866DC97006CCAD0 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C2D3C2866DC97006CCAD0 /* ProgressView.swift */; };
+		B7DA6A4A28671927005ABC09 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B7DA6A4928671927005ABC09 /* Lottie */; };
 		F94E9E8E28667BBB007A4BEE /* TipLinkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94E9E8D28667BBB007A4BEE /* TipLinkCard.swift */; };
 		F94E9E9128667C42007A4BEE /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94E9E9028667C42007A4BEE /* Tip.swift */; };
 		F94E9E9328668B56007A4BEE /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94E9E9228668B56007A4BEE /* NavigationController.swift */; };
@@ -51,7 +52,6 @@
 		F95AC12C2865AA3F00F06385 /* ChallengeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95AC12B2865AA3F00F06385 /* ChallengeCard.swift */; };
 		F95AC12E2865B3C800F06385 /* TodayTipCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95AC12D2865B3C800F06385 /* TodayTipCard.swift */; };
 		F95AC1302865DD9100F06385 /* TipDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95AC12F2865DD9100F06385 /* TipDetailView.swift */; };
-		F99B4F9C2866F1A2009AAC98 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F99B4F9B2866F1A2009AAC98 /* Lottie */; };
 		F99B4F9E2866F1F2009AAC98 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99B4F9D2866F1F2009AAC98 /* LottieView.swift */; };
 		F99B4FA02866F23E009AAC98 /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = F99B4F9F2866F23E009AAC98 /* confetti.json */; };
 /* End PBXBuildFile section */
@@ -114,7 +114,7 @@
 			files = (
 				B78C2D1128659801006CCAD0 /* FSCalendar in Frameworks */,
 				6A5F87F658FAA1C1097F57D8 /* Pods_Whip.framework in Frameworks */,
-				F99B4F9C2866F1A2009AAC98 /* Lottie in Frameworks */,
+				B7DA6A4A28671927005ABC09 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,7 +404,7 @@
 			name = Whip;
 			packageProductDependencies = (
 				B78C2D1028659801006CCAD0 /* FSCalendar */,
-				F99B4F9B2866F1A2009AAC98 /* Lottie */,
+				B7DA6A4928671927005ABC09 /* Lottie */,
 			);
 			productName = Whip;
 			productReference = B7570211286346860073E49F /* Whip.app */;
@@ -436,7 +436,7 @@
 			mainGroup = B7570208286346860073E49F;
 			packageReferences = (
 				B78C2D0F28659801006CCAD0 /* XCRemoteSwiftPackageReference "FSCalendar" */,
-				F99B4F9A2866F1A2009AAC98 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				B7DA6A4828671927005ABC09 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = B7570212286346860073E49F /* Products */;
 			projectDirPath = "";
@@ -781,12 +781,12 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		F99B4F9A2866F1A2009AAC98 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+		B7DA6A4828671927005ABC09 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -797,9 +797,9 @@
 			package = B78C2D0F28659801006CCAD0 /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
 		};
-		F99B4F9B2866F1A2009AAC98 /* Lottie */ = {
+		B7DA6A4928671927005ABC09 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F99B4F9A2866F1A2009AAC98 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			package = B7DA6A4828671927005ABC09 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */

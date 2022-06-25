@@ -59,7 +59,7 @@ struct DetailedAnaylsisView: View {
                         self.barChartView
                             .padding(.top, 20)
                     }
-                    .padding(.horizontal, 12)
+                    .padding(.horizontal, 24)
                     .padding(.top, 24)
                     
                     VStack(alignment: .leading, spacing: 0) {
@@ -69,7 +69,7 @@ struct DetailedAnaylsisView: View {
                         self.donutChartView
                             .padding(.top, 16)
                     }
-                    .padding(.horizontal, 12)
+                    .padding(.horizontal, 24)
                     .padding(.top, 48)
                     
                     VStack(alignment: .leading, spacing: 0) {
@@ -91,7 +91,7 @@ struct DetailedAnaylsisView: View {
                         .buttonStyle(BigButtonStyle(fontSize: 18, fontColor: .white, backgroundColor: .carrot))
                         .padding(.top, 20)
                     }
-                    .padding(.horizontal, 12)
+                    .padding(.horizontal, 24)
                     .padding(.top, 48)
                     .padding(.bottom, 60)
                 }
@@ -104,19 +104,21 @@ struct DetailedAnaylsisView: View {
 extension DetailedAnaylsisView {
     @ViewBuilder
     var barChartView: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            HStack {
-                Text("(만원)")
-                    .font(.system(size: 14))
-                Spacer()
+        HStack {
+            Spacer()
+            VStack(alignment: .leading, spacing: 0) {
+                HStack {
+                    Text("(만원)")
+                        .font(.system(size: 14))
+                    Spacer()
+                }
+                BarChartView()
+                    .padding(.top, 20)
             }
-            BarChartView()
-                .padding(.top, 20)
+            .frame(width: 280, height: 180)
+            .padding(.vertical, 40)
+            Spacer()
         }
-        .frame(width: 280, height: 180)
-        .padding(.horizontal, 40)
-        .padding(.top, 28)
-        .padding(.bottom, 16)
         .background(.white)
         .cornerRadius(15)
         .shadow(color: Color.black.opacity(0.08), radius: 26, x: 0, y: 0)
@@ -124,27 +126,28 @@ extension DetailedAnaylsisView {
     
     @ViewBuilder
     var donutChartView: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Text("2022.01 ~ 현재")
-                    .font(.system(size: 14))
-                    .foregroundColor(.gray)
+        HStack {
+            Spacer()
+            VStack {
+                HStack {
+                    Spacer()
+                    Text("2022.01 ~ 현재")
+                        .font(.system(size: 14))
+                        .foregroundColor(.gray)
+                }
+                DonutChartView(
+                    values: [300000, 189000, 45000],
+                    names: ["당근챌린지", "인터넷 강의", "서점"],
+                    widthFraction: 0.95
+                )
             }
-            DonutChartView(
-                values: [300000, 189000, 45000],
-                names: ["당근챌린지", "인터넷 강의", "서점"],
-                widthFraction: 0.95
-            )
+            .frame(width: 240, height: 350)
+            .padding(.vertical, 40)
+            Spacer()
         }
-        .frame(width: 280, height: 380)
-        .padding(.horizontal, 40)
-        .padding(.top, 36)
-        .padding(.bottom, 20)
         .background(.white)
         .cornerRadius(15)
         .shadow(color: Color.black.opacity(0.08), radius: 26, x: 0, y: 0)
-        
     }
 }
 
